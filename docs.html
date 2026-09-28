@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Any Convert: Docs</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --pad-x:64px; --stack:row; --grid-cols:3;
+  --bg:#FAF8F4; --surface:#FFFFFF; --surface-2:#F1EEE7;
+  --ink:#1C1F22; --ink-muted:#5B6169;
+  --line:#E4E1DA;
+  --accent:#2452B0; --accent-ink:#FFFFFF; --accent-soft:#E8EEFA;
+  --success:#2F7D5B; --success-soft:#E7F3EC;
+  --danger:#B3432B; --danger-soft:#FBEAE4;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'IBM Plex Sans',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;
+}
+body{margin:0;background:var(--bg);font-family:var(--font-body);color:var(--ink);}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+table{border-collapse:collapse;width:100%;}
+code{font-family:var(--font-mono);background:var(--surface-2);padding:2px 6px;border-radius:4px;font-size:0.92em;}
+.nav-burger{display:none;}
+@media (max-width: 720px){
+  :root{--pad-x:20px; --stack:column; --grid-cols:1;}
+  .nav-burger{display:flex !important; align-items:center; justify-content:center;}
+  .nav-links{display:none !important; flex-direction:column !important; align-items:flex-start !important; position:absolute; top:100%; left:0; right:0; background:var(--bg); padding:16px 20px !important; border-bottom:1px solid var(--line); gap:16px !important; box-shadow:0 12px 24px -12px rgba(28,31,34,0.15);}
+  #nav-toggle:checked ~ .nav-links{display:flex !important;}
+  h1{font-size:34px !important;}
+  table{display:block; overflow-x:auto; white-space:nowrap;}
+}
+</style>
+</head>
+<body>
+<div style="width: 100%; min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column;">
+
+  <!-- NAV -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px var(--pad-x); border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 10;">
+    <a href="index.html" style="display: flex; align-items: center;"><img src="logo.png" alt="Any Convert" style="height: 30px; width: auto; display: block;"></a>
+    
+    <input type="checkbox" id="nav-toggle" style="display:none;">
+    <label for="nav-toggle" class="nav-burger" onclick="event.preventDefault(); var c=document.getElementById(&#39;nav-toggle&#39;); c.checked=!c.checked;" style="cursor:pointer; padding:6px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></label>
+    <div class="nav-links" style="display: flex; align-items: center; gap: 36px;">
+      <a href="index.html" style="font-size: 15px; font-weight: 500; color: var(--ink);">Tools</a>
+      <span style="font-size: 15px; font-weight: 600; color: var(--accent);">Docs</span>
+      <a href="pricing.html" style="font-size: 15px; font-weight: 500; color: var(--ink);">Pricing</a>
+      <a href="pricing.html" style="background: var(--accent); color: var(--accent-ink); padding: 10px 20px; border-radius: 8px; font-size: 15px; font-weight: 600;">Get your API key</a>
+    </div>
+  </div>
+
+  <div style="max-width: 820px; margin: 0 auto; padding: 72px 32px 120px; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 56px;">
+
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <h1 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 42px;">API Reference</h1>
+      <p style="margin: 0; font-size: 17px; color: var(--ink-muted); line-height: 1.6;">Everything you need to send a drawing and receive a PDF on your webhook.</p>
+    </div>
+
+    <!-- AUTH -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 24px; padding-top: 8px; border-top: 1px solid var(--line);">Authentication</h2>
+      <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: var(--ink); max-width: 68ch;">Every request needs your API key as a bearer token in the <code>Authorization</code> header. Find and rotate your key from the dashboard.</p>
+      <pre style="margin: 0; background: #14181D; color: #E9E6DF; padding: 18px 20px; border-radius: 10px; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto;">Authorization: Bearer ac_live_xxxxxxxxxxxxxxxx</pre>
+    </div>
+
+    <!-- CONVERT ENDPOINT -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 24px; padding-top: 8px; border-top: 1px solid var(--line);">Convert a file</h2>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="background: var(--success-soft); color: var(--success); font-family: var(--font-mono); font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 5px;">POST</span>
+        <code style="background: none; padding: 0; font-size: 15px;">/v1/convert</code>
+      </div>
+      <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: var(--ink); max-width: 68ch;">One endpoint handles every tool. Pass a <code>strategy</code> to tell us which operation to run. The request returns immediately with a job id. The finished file is delivered separately to your webhook, not in this response.</p>
+
+      <div style="margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em;">Request: multipart/form-data</div>
+      <table>
+        <tr style="border-bottom: 1px solid var(--line);">
+          <td style="padding: 10px 0; font-size: 14px; font-weight: 600; width: 30%;">file</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted); width: 20%;">binary, required</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">The document to process. Repeat this field for strategies that accept multiple files, e.g. <code>merge_pdf</code>.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--line);">
+          <td style="padding: 10px 0; font-size: 14px; font-weight: 600;">strategy</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">string, required</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">Which operation to run. See <a href="#strategies">Strategies</a> below.</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; font-size: 14px; font-weight: 600;">webhook_url</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">string, optional</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">Overrides your account's default webhook URL for this request only.</td>
+        </tr>
+      </table>
+
+      <div style="margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em;">curl</div>
+      <pre style="margin: 0; background: #14181D; color: #E9E6DF; padding: 18px 20px; border-radius: 10px; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto; white-space: pre-wrap;">curl -X POST https://api.anyconvert.app/v1/convert \
+  -H "Authorization: Bearer ac_live_..." \
+  -F "file=@site-plan.dwg" \
+  -F "strategy=dwg_to_pdf" \
+  -F "webhook_url=https://yourapp.com/webhooks/pdf"</pre>
+
+      <div style="margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em;">Response: 202 Accepted</div>
+      <pre style="margin: 0; background: #14181D; color: #E9E6DF; padding: 18px 20px; border-radius: 10px; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto;">{
+  "job_id": "job_8f3a2c19",
+  "strategy": "dwg_to_pdf",
+  "status": "processing"
+}</pre>
+    </div>
+
+    <!-- STRATEGIES -->
+    <div id="strategies" style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 24px; padding-top: 8px; border-top: 1px solid var(--line);">Strategies</h2>
+      <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: var(--ink); max-width: 68ch;">Every tool runs through the same <code>/v1/convert</code> endpoint; this value just tells us which one.</p>
+      <table>
+        <tr style="border-bottom: 1px solid var(--line);">
+          <td style="padding: 10px 0; font-size: 13px; font-weight: 700; font-family: var(--font-mono); width: 26%;">dwg_to_pdf</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted); width: 34%;">DWG to PDF</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted); text-align: right;">From $0.90 / doc</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--line);">
+          <td style="padding: 10px 0; font-size: 13px; font-weight: 700; font-family: var(--font-mono);">pdf_to_word</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">PDF to Word</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted); text-align: right;">From $0.27 / doc</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--line);">
+          <td style="padding: 10px 0; font-size: 13px; font-weight: 700; font-family: var(--font-mono);">merge_pdf</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">Merge PDF</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted); text-align: right;">From $0.18 / doc</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--line);">
+          <td style="padding: 10px 0; font-size: 13px; font-weight: 700; font-family: var(--font-mono);">jpg_to_pdf</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">JPG to PDF</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted); text-align: right;">From $0.14 / doc</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--line);">
+          <td style="padding: 10px 0; font-size: 13px; font-weight: 700; font-family: var(--font-mono);">sign_pdf</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">Sign PDF</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted); text-align: right;">From $0.32 / doc</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--line);">
+          <td style="padding: 10px 0; font-size: 13px; font-weight: 700; font-family: var(--font-mono);">edit_pdf</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">Edit PDF</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted); text-align: right;">From $0.27 / doc</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; font-size: 13px; font-weight: 700; font-family: var(--font-mono);">compress_pdf</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">Compress PDF</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted); text-align: right;">From $0.14 / doc</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- WEBHOOK -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 24px; padding-top: 8px; border-top: 1px solid var(--line);">Webhook delivery</h2>
+      <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: var(--ink); max-width: 68ch;">When conversion finishes, we <code>POST</code> the result to your <code>webhook_url</code> (or your account default, set in the dashboard).</p>
+      <pre style="margin: 0; background: #14181D; color: #E9E6DF; padding: 18px 20px; border-radius: 10px; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto;">POST https://yourapp.com/webhooks/pdf
+X-Signature: sha256=8b1a99...
+
+{
+  "job_id": "job_8f3a2c19",
+  "status": "completed",
+  "file_url": "https://files.anyconvert.app/job_8f3a2c19.pdf"
+}</pre>
+      <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: var(--ink); max-width: 68ch;">On failure, <code>status</code> is <code>"failed"</code> and an <code>error</code> field explains why. The <code>file_url</code> field is omitted.</p>
+
+      <div style="margin-top: 10px; padding: 18px 20px; background: var(--surface-2); border-radius: 10px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="font-size: 14.5px; font-weight: 600;">Verifying the signature</div>
+        <p style="margin: 0; font-size: 14.5px; line-height: 1.7; color: var(--ink-muted);">The <code>X-Signature</code> header is an HMAC-SHA256 of the raw request body, signed with your API secret. Check it before trusting a payload. Respond <code>200</code> quickly, and do any slow work after acknowledging receipt.</p>
+      </div>
+      <p style="margin: 0; font-size: 14px; color: var(--ink-muted);">Retry policy: 3 attempts with exponential backoff over 24 hours.</p>
+    </div>
+
+    <!-- ERRORS -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 24px; padding-top: 8px; border-top: 1px solid var(--line);">Errors</h2>
+      <table>
+        <tr style="border-bottom: 1px solid var(--line);">
+          <td style="padding: 10px 0; font-size: 14px; font-weight: 700; font-family: var(--font-mono); width: 18%;">401</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">Invalid or missing API key</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--line);">
+          <td style="padding: 10px 0; font-size: 14px; font-weight: 700; font-family: var(--font-mono);">402</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">No credits remaining on your account</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--line);">
+          <td style="padding: 10px 0; font-size: 14px; font-weight: 700; font-family: var(--font-mono);">413</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">File exceeds the 200 MB limit</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--line);">
+          <td style="padding: 10px 0; font-size: 14px; font-weight: 700; font-family: var(--font-mono);">422</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">The file could not be read as a valid DWG</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; font-size: 14px; font-weight: 700; font-family: var(--font-mono);">500</td>
+          <td style="padding: 10px 0; font-size: 14px; color: var(--ink-muted);">Conversion failed. Retry, or contact support if it persists</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- LIMITS -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 24px; padding-top: 8px; border-top: 1px solid var(--line);">Limits</h2>
+      <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: var(--ink); line-height: 1.6;">
+        <li>Maximum file size: 200 MB</li>
+        <li>Rate limit: 10 requests / minute</li>
+        <li>Supported formats: DWG, versions R13 through 2018</li>
+      </ul>
+    </div>
+
+    <!-- CODE SAMPLES -->
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 24px; padding-top: 8px; border-top: 1px solid var(--line);">Code samples</h2>
+
+      <div style="font-size: 13px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em;">Python</div>
+      <pre style="margin: 0; background: #14181D; color: #E9E6DF; padding: 18px 20px; border-radius: 10px; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto;">import requests
+
+with open("site-plan.dwg", "rb") as f:
+    response = requests.post(
+        "https://api.anyconvert.app/v1/convert",
+        headers={"Authorization": "Bearer ac_live_..."},
+        files={"file": f},
+        data={"strategy": "dwg_to_pdf", "webhook_url": "https://yourapp.com/webhooks/pdf"},
+    )
+
+print(response.json())  # {"job_id": "...", "strategy": "dwg_to_pdf", "status": "processing"}</pre>
+
+      <div style="font-size: 13px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 8px;">Node.js</div>
+      <pre style="margin: 0; background: #14181D; color: #E9E6DF; padding: 18px 20px; border-radius: 10px; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto;">const form = new FormData();
+form.append("file", fs.createReadStream("site-plan.dwg"));
+form.append("strategy", "dwg_to_pdf");
+form.append("webhook_url", "https://yourapp.com/webhooks/pdf");
+
+const res = await fetch("https://api.anyconvert.app/v1/convert", {
+  method: "POST",
+  headers: { Authorization: "Bearer ac_live_..." },
+  body: form,
+});
+
+console.log(await res.json()); // { job_id: "...", strategy: "dwg_to_pdf", status: "processing" }</pre>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

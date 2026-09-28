@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Any Convert: Privacy Policy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --pad-x:64px; --stack:row; --grid-cols:3;
+  --bg:#FAF8F4; --surface:#FFFFFF; --surface-2:#F1EEE7;
+  --ink:#1C1F22; --ink-muted:#5B6169;
+  --line:#E4E1DA;
+  --accent:#2452B0; --accent-ink:#FFFFFF; --accent-soft:#E8EEFA;
+  --success:#2F7D5B; --success-soft:#E7F3EC;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'IBM Plex Sans',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;
+}
+body{margin:0;background:var(--bg);font-family:var(--font-body);color:var(--ink);}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.nav-burger{display:none;}
+@media (max-width: 720px){
+  :root{--pad-x:20px; --stack:column; --grid-cols:1;}
+  .nav-burger{display:flex !important; align-items:center; justify-content:center;}
+  .nav-links{display:none !important; flex-direction:column !important; align-items:flex-start !important; position:absolute; top:100%; left:0; right:0; background:var(--bg); padding:16px 20px !important; border-bottom:1px solid var(--line); gap:16px !important; box-shadow:0 12px 24px -12px rgba(28,31,34,0.15);}
+  #nav-toggle:checked ~ .nav-links{display:flex !important;}
+  h1{font-size:34px !important;}
+  table{display:block; overflow-x:auto; white-space:nowrap;}
+}
+</style>
+</head>
+<body>
+<div style="width: 100%; min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column;">
+
+  <!-- NAV -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px var(--pad-x); border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 10;">
+    <a href="index.html" style="display: flex; align-items: center;"><img src="logo.png" alt="Any Convert" style="height: 30px; width: auto; display: block;"></a>
+    
+    <input type="checkbox" id="nav-toggle" style="display:none;">
+    <label for="nav-toggle" class="nav-burger" onclick="event.preventDefault(); var c=document.getElementById(&#39;nav-toggle&#39;); c.checked=!c.checked;" style="cursor:pointer; padding:6px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></label>
+    <div class="nav-links" style="display: flex; align-items: center; gap: 36px;">
+      <a href="index.html#tools" style="font-size: 15px; font-weight: 500; color: var(--ink);">Tools</a>
+      <a href="docs.html" style="font-size: 15px; font-weight: 500; color: var(--ink);">Docs</a>
+      <a href="pricing.html" style="font-size: 15px; font-weight: 500; color: var(--ink);">Pricing</a>
+    </div>
+  </div>
+
+  <div style="max-width: 780px; margin: 0 auto; padding: 72px 32px 120px; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px;">
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <h1 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 40px;">Privacy Policy</h1>
+      <p style="margin: 0; font-size: 14.5px; color: var(--ink-muted);">This explains what data Any Convert ("we," "us") collects when you use our API and dashboard, why we collect it, and how long we keep it.</p>
+    </div>
+
+    <div style="background: var(--accent-soft); border-radius: 10px; padding: 20px 24px; display: flex; gap: 14px; align-items: flex-start;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V5z"/><path d="m9 12 2 2 4-4"/></svg>
+      <div style="font-size: 14.5px; line-height: 1.6; color: var(--ink);"><strong>The short version:</strong> the files you submit for conversion are used only to produce your result, and are deleted from our servers immediately after successful delivery to your webhook. We don't read, retain, inspect, or train on your files.</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; padding-top: 8px; border-top: 1px solid var(--line);">1. Information We Collect</h2>
+      <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.7; color: var(--ink);">
+        <li><strong>Account information:</strong> the email address you sign up with, and your API key (we store only a hash of it, never the plaintext).</li>
+        <li><strong>Payment information:</strong> handled entirely by our payment processor(s). We receive confirmation that a payment succeeded and the amount, but we never see or store your full card number.</li>
+        <li><strong>The files you submit:</strong> processed to produce your conversion result, then deleted. See Section 2.</li>
+        <li><strong>Usage and log data:</strong> API request timestamps, which endpoint and strategy were used, job status, and error codes, kept for billing accuracy and troubleshooting.</li>
+      </ul>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; padding-top: 8px; border-top: 1px solid var(--line);">2. How We Handle Your Files</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink);">A file you submit is stored only long enough to convert it and deliver the result to your webhook. Once delivery is confirmed, both the original file and the converted result are deleted. If delivery to your webhook fails, we retry up to 3 times; after 3 failed attempts, the file is deleted. We do not use your files for analytics, model training, or any purpose other than fulfilling your request, and we do not share them with any third party except as strictly necessary to perform the conversion itself.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; padding-top: 8px; border-top: 1px solid var(--line);">3. How We Use Information</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink);">We use account and usage information to operate the Service: authenticating your requests, metering credits, billing you, sending account or service notifications, responding to support requests, and diagnosing failures. We don't sell your information, and we don't use it for advertising.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; padding-top: 8px; border-top: 1px solid var(--line);">4. Third Parties We Work With</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink);">We rely on a small number of service providers to run Any Convert, including a payment processor (for billing) and a cloud hosting provider (for compute and storage). Each only receives the data it needs to do its job. For example, our payment processor sees your billing details, not your uploaded files. A current list of providers is available on request to support@anyconvert.app.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; padding-top: 8px; border-top: 1px solid var(--line);">5. Data Retention</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink);">Account and billing records are kept for as long as your account is active and for a period afterward as required for accounting and legal purposes. Uploaded files and conversion results are not retained beyond what's described in Section 2. You can request deletion of your account and associated records at any time. See Section 6.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; padding-top: 8px; border-top: 1px solid var(--line);">6. Your Rights</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink);">Depending on where you're located, you may have the right to access, correct, or request deletion of your personal data, or to object to certain processing. To exercise any of these rights, contact us at support@anyconvert.app.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; padding-top: 8px; border-top: 1px solid var(--line);">7. Security</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink);">All requests to the API are encrypted in transit. API keys are stored as a one-way hash, not in plaintext, so we can't recover your key even if we wanted to. If it's lost, it has to be regenerated. Access to production systems is limited to those who need it to operate the Service.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; padding-top: 8px; border-top: 1px solid var(--line);">8. International Transfers</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink);">Your data may be processed on servers located in a different country than your own. Where required by law, we take appropriate steps to ensure your data receives an adequate level of protection wherever it's processed.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; padding-top: 8px; border-top: 1px solid var(--line);">9. Children's Privacy</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink);">The Service is intended for business and developer use and is not directed at children. We don't knowingly collect personal information from anyone under 16.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; padding-top: 8px; border-top: 1px solid var(--line);">10. Changes to This Policy</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink);">If we make a material change to this policy, we'll notify account holders by email or through the dashboard before it takes effect.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; padding-top: 8px; border-top: 1px solid var(--line);">11. Contact</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink);">Questions about this policy, or requests regarding your data, can be sent to support@anyconvert.app.</p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div style="padding: 40px var(--pad-x); margin-top: auto; border-top: 1px solid var(--line);">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: var(--stack, row); justify-content: space-between; align-items: center; gap: 12px; font-size: 13px; color: var(--ink-muted);">
+      <div>© 2026 Any Convert. All rights reserved.</div>
+      <div style="display: flex; gap: 24px;">
+        <a href="terms.html" style="color: var(--ink-muted);">Terms</a>
+        <a href="privacy.html" style="color: var(--ink-muted);">Privacy</a>
+        <a href="refundpolicy.html" style="color: var(--ink-muted);">Refunds</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

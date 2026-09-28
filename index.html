@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Any Convert: Home</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --pad-x:64px; --stack:row; --grid-cols:3;
+  --bg:#FAF8F4; --surface:#FFFFFF; --surface-2:#F1EEE7;
+  --ink:#1C1F22; --ink-muted:#5B6169;
+  --line:#E4E1DA;
+  --accent:#2452B0; --accent-ink:#FFFFFF; --accent-soft:#E8EEFA;
+  --success:#2F7D5B; --success-soft:#E7F3EC;
+  --danger:#B3432B; --danger-soft:#FBEAE4;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'IBM Plex Sans',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;
+}
+body{margin:0;background:var(--bg);font-family:var(--font-body);color:var(--ink);}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.nav-burger{display:none;}
+@media (max-width: 720px){
+  :root{--pad-x:20px; --stack:column; --grid-cols:1;}
+  .nav-burger{display:flex !important; align-items:center; justify-content:center;}
+  .nav-links{display:none !important; flex-direction:column !important; align-items:flex-start !important; position:absolute; top:100%; left:0; right:0; background:var(--bg); padding:16px 20px !important; border-bottom:1px solid var(--line); gap:16px !important; box-shadow:0 12px 24px -12px rgba(28,31,34,0.15);}
+  #nav-toggle:checked ~ .nav-links{display:flex !important;}
+  h1{font-size:34px !important;}
+  table{display:block; overflow-x:auto; white-space:nowrap;}
+}
+</style>
+</head>
+<body>
+<div style="width: 100%; min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column;">
+
+  <!-- NAV -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px var(--pad-x); border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 10;">
+    <a href="index.html" style="display: flex; align-items: center;"><img src="logo.png" alt="Any Convert" style="height: 30px; width: auto; display: block;"></a>
+    
+    <input type="checkbox" id="nav-toggle" style="display:none;">
+    <label for="nav-toggle" class="nav-burger" onclick="event.preventDefault(); var c=document.getElementById(&#39;nav-toggle&#39;); c.checked=!c.checked;" style="cursor:pointer; padding:6px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></label>
+    <div class="nav-links" style="display: flex; align-items: center; gap: 36px;">
+      <a href="#tools" style="font-size: 15px; font-weight: 500; color: var(--ink);">Tools</a>
+      <a href="docs.html" style="font-size: 15px; font-weight: 500; color: var(--ink);">Docs</a>
+      <a href="pricing.html" style="font-size: 15px; font-weight: 500; color: var(--ink);">Pricing</a>
+      <a href="pricing.html" style="background: var(--accent); color: var(--accent-ink); padding: 10px 20px; border-radius: 8px; font-size: 15px; font-weight: 600;">Get your API key</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="padding: 100px var(--pad-x) 80px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 26px;">
+    <h1 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 54px; line-height: 1.08; letter-spacing: -0.02em; max-width: 16ch;">Every document conversion, one API.</h1>
+    <p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--ink-muted); max-width: 52ch;">Send a file, get the result delivered to your webhook. One key and one integration pattern, across every conversion tool we offer.</p>
+    <div style="display: flex; gap: 14px; margin-top: 6px;">
+      <a href="pricing.html" style="background: var(--accent); color: var(--accent-ink); padding: 14px 24px; border-radius: 8px; font-size: 16px; font-weight: 600;">Get your API key</a>
+      <a href="#tools" style="border: 1px solid var(--line); color: var(--ink); padding: 14px 24px; border-radius: 8px; font-size: 16px; font-weight: 600;">Explore all tools</a>
+    </div>
+    <div style="margin-top: 28px; width: 100%; max-width: 680px; background: #14181D; border-radius: 14px; padding: 26px 30px; box-shadow: 0 20px 48px -20px rgba(28,31,34,0.35); text-align: left;">
+      <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+        <div style="width: 11px; height: 11px; border-radius: 50%; background: #4B5157;"></div>
+        <div style="width: 11px; height: 11px; border-radius: 50%; background: #4B5157;"></div>
+        <div style="width: 11px; height: 11px; border-radius: 50%; background: #4B5157;"></div>
+      </div>
+      <pre style="margin: 0; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.7; color: #E9E6DF; white-space: pre-wrap; overflow-wrap: break-word;"><span style="color:#8B92A0;"># Example: DWG to PDF</span>
+curl -X POST https://api.anyconvert.app/v1/convert \
+  -H "Authorization: Bearer ac_live_..." \
+  -F "file=@site-plan.dwg" \
+  -F "strategy=dwg_to_pdf" \
+  -F "webhook_url=https://yourapp.com/webhooks/pdf"
+
+<span style="color:#8FB18A;">→ 202 Accepted</span>  {"job_id": "job_8f3a2c19", "status": "processing"}</pre>
+    </div>
+  </div>
+
+  <!-- TOOLS GRID -->
+  <div id="tools" style="background: var(--surface-2); padding: 84px var(--pad-x);">
+    <div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px;">
+      <div style="text-align: center; display: flex; flex-direction: column; gap: 12px;">
+        <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 34px;">Most popular tools</h2>
+        <p style="margin: 0; font-size: 16px; color: var(--ink-muted);">Pay only for what you convert. No subscriptions required.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(var(--grid-cols, 3), minmax(0, 1fr)); gap: 20px;">
+
+        <!-- DWG TO PDF: live -->
+        <a href="dwg-to-pdf.html" style="background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; color: var(--ink);">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 700; font-size: 13px;">DWG</div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 8px;"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+          <div>
+            <div style="font-size: 17px; font-weight: 600;">DWG to PDF</div>
+            <div style="font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;">Convert DWG drawings to print-ready PDF via webhook.</div>
+          </div>
+          <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 13.5px; font-weight: 600; color: var(--ink);">From $0.90 / doc</span>
+            <span style="font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;">Get API key</span>
+          </div>
+        </a>
+
+        <!-- PDF TO WORD -->
+        <a href="pdf-to-word.html" style="background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; color: var(--ink);">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #2F6FE4; color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 19px;">W</div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 8px;"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+          <div>
+            <div style="font-size: 17px; font-weight: 600;">PDF to Word</div>
+            <div style="font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;">Convert PDFs to editable .docx documents.</div>
+          </div>
+          <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 13.5px; font-weight: 600; color: var(--ink);">From $0.27 / doc</span>
+            <span style="font-size: 12.5px; font-weight: 600; color: var(--accent);">Get API key</span>
+          </div>
+        </a>
+
+        <!-- MERGE PDF -->
+        <a href="merge-pdf.html" style="background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; color: var(--ink);">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #6D4FC4; color: #fff; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="12" height="12" rx="2"/><path d="M9 15v3a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-3"/></svg>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 8px;"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+          <div>
+            <div style="font-size: 17px; font-weight: 600;">Merge PDF</div>
+            <div style="font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;">Combine multiple PDFs into one document.</div>
+          </div>
+          <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 13.5px; font-weight: 600; color: var(--ink);">From $0.18 / doc</span>
+            <span style="font-size: 12.5px; font-weight: 600; color: var(--accent);">Get API key</span>
+          </div>
+        </a>
+
+        <!-- JPG TO PDF -->
+        <a href="jpg-to-pdf.html" style="background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; color: var(--ink);">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #D98B1F; color: #fff; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m21 16-5-5L5 20"/></svg>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 8px;"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+          <div>
+            <div style="font-size: 17px; font-weight: 600;">JPG to PDF</div>
+            <div style="font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;">Turn JPG, PNG, and TIFF images into PDF.</div>
+          </div>
+          <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 13.5px; font-weight: 600; color: var(--ink);">From $0.14 / doc</span>
+            <span style="font-size: 12.5px; font-weight: 600; color: var(--accent);">Get API key</span>
+          </div>
+        </a>
+
+        <!-- SIGN PDF -->
+        <a href="sign-pdf.html" style="background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; color: var(--ink);">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #C64FA0; color: #fff; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c2-3 3-1 4-3s1-3 3-2 1 3 3 1 2-4 4-2 1 3 3 1"/><path d="M3 20h18"/></svg>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 8px;"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+          <div>
+            <div style="font-size: 17px; font-weight: 600;">Sign PDF</div>
+            <div style="font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;">Apply a signature field to a PDF programmatically.</div>
+          </div>
+          <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 13.5px; font-weight: 600; color: var(--ink);">From $0.32 / doc</span>
+            <span style="font-size: 12.5px; font-weight: 600; color: var(--accent);">Get API key</span>
+          </div>
+        </a>
+
+        <!-- EDIT PDF -->
+        <a href="edit-pdf.html" style="background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; color: var(--ink);">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #2E9B8F; color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 19px;">T</div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 8px;"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+          <div>
+            <div style="font-size: 17px; font-weight: 600;">Edit PDF</div>
+            <div style="font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;">Add text, shapes, and annotations to a PDF.</div>
+          </div>
+          <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 13.5px; font-weight: 600; color: var(--ink);">From $0.27 / doc</span>
+            <span style="font-size: 12.5px; font-weight: 600; color: var(--accent);">Get API key</span>
+          </div>
+        </a>
+
+        <!-- COMPRESS PDF -->
+        <a href="compress-pdf.html" style="background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; color: var(--ink);">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #C24A3A; color: #fff; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3M3 16h3a2 2 0 0 1 2 2v3m8-5h3a2 2 0 0 1 2 2v3"/></svg>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 8px;"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+          <div>
+            <div style="font-size: 17px; font-weight: 600;">Compress PDF</div>
+            <div style="font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;">Shrink file size without losing print quality.</div>
+          </div>
+          <div style="margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 13.5px; font-weight: 600; color: var(--ink);">From $0.14 / doc</span>
+            <span style="font-size: 12.5px; font-weight: 600; color: var(--accent);">Get API key</span>
+          </div>
+        </a>
+
+        <!-- MORE COMING -->
+        <div style="border: 1px dashed var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; text-align: center; color: var(--ink-muted);">
+          <div style="font-size: 15px; font-weight: 600; color: var(--ink);">More tools on the way</div>
+          <div style="font-size: 13.5px; line-height: 1.5;">Tell us which conversion you need next.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE HIGHLIGHTS -->
+  <div style="padding: 96px var(--pad-x); display: flex; flex-direction: column; gap: 96px; max-width: 1120px; margin: 0 auto; width: 100%; box-sizing: border-box;">
+
+    <div style="display: flex; flex-direction: var(--stack, row); align-items: center; gap: 64px;">
+      <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+        <h3 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 30px;">Built for automated pipelines</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.7; color: var(--ink-muted);">No dashboards to babysit, no download links to click. Submit a file and we call your webhook the moment the result is ready. It's designed to sit inside a script or service, not a browser tab.</p>
+        <a href="docs.html" style="font-size: 15px; font-weight: 600;">Read the docs →</a>
+      </div>
+      <div style="flex: 1; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 18px;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; font-family: var(--font-mono);">1</div>
+          <div style="font-size: 14.5px; font-weight: 600;">Your app POSTs a file</div>
+        </div>
+        <div style="width: 1px; height: 20px; background: var(--line); margin-left: 15px;"></div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; font-family: var(--font-mono);">2</div>
+          <div style="font-size: 14.5px; font-weight: 600;">We process and convert it</div>
+        </div>
+        <div style="width: 1px; height: 20px; background: var(--line); margin-left: 15px;"></div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--success-soft); color: var(--success); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; font-family: var(--font-mono);">3</div>
+          <div style="font-size: 14.5px; font-weight: 600;">Your webhook receives the result</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 64px; flex-direction: var(--stack, row-reverse);">
+      <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+        <h3 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 30px;">One key, every tool</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.7; color: var(--ink-muted);">Every tool runs through the same endpoint. A <code style="font-family: var(--font-mono); background: var(--surface); padding: 2px 6px; border-radius: 4px;">strategy</code> field tells us which one to run. Learn the pattern once and reuse it everywhere.</p>
+        <a href="docs.html#strategies" style="font-size: 15px; font-weight: 600;">See all strategies →</a>
+      </div>
+      <div style="flex: 1; min-width: 0; background: #14181D; border-radius: 14px; padding: 26px 28px;">
+        <pre style="margin: 0; font-family: var(--font-mono); font-size: 13px; line-height: 1.9; color: #E9E6DF; overflow-x: auto;">POST <span style="color:#8FB18A;">/v1/convert</span>
+Authorization: Bearer ac_live_...
+
+strategy=<span style="color:#8B92A0;">dwg_to_pdf</span>
+strategy=<span style="color:#8B92A0;">pdf_to_word</span>
+strategy=<span style="color:#8B92A0;">merge_pdf</span>
+strategy=<span style="color:#8B92A0;">jpg_to_pdf</span></pre>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: var(--stack, row); align-items: center; gap: 64px;">
+      <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+        <h3 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 30px;">Files deleted automatically</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.7; color: var(--ink-muted);">Your documents often carry sensitive or proprietary information. We remove uploaded files and results from our servers immediately after delivery, and nothing is retained.</p>
+      </div>
+      <div style="flex: 1; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 40px; display: flex; align-items: center; justify-content: center;">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V5z"/><path d="m9 12 2 2 4-4"/></svg>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TRUST GRID -->
+  <div style="background: var(--surface-2); padding: 88px var(--pad-x);">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px;">
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 34px; text-align: center;">Why teams use us</h2>
+      <div style="display: grid; grid-template-columns: repeat(var(--grid-cols, 3), minmax(0, 1fr)); gap: 32px;">
+        <div style="display: flex; gap: 14px; align-items: flex-start;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V5z"/></svg>
+          <div><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Files deleted after delivery</div><div style="font-size: 14px; color: var(--ink-muted); line-height: 1.5;">Nothing is retained once your webhook has the result.</div></div>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: flex-start;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+          <div><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Signed webhook payloads</div><div style="font-size: 14px; color: var(--ink-muted); line-height: 1.5;">Verify every delivery with an HMAC signature header.</div></div>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: flex-start;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v3M16 4v3"/></svg>
+          <div><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Broad format support</div><div style="font-size: 14px; color: var(--ink-muted); line-height: 1.5;">DWG from R13 through 2018, plus common office and image formats.</div></div>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: flex-start;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><path d="M4 17V7a2 2 0 0 1 2-2h6l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg>
+          <div><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Built for pipelines</div><div style="font-size: 14px; color: var(--ink-muted); line-height: 1.5;">Webhook delivery by default, with no manual downloads to script around.</div></div>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: flex-start;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <div><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Transparent, credit-based pricing</div><div style="font-size: 14px; color: var(--ink-muted); line-height: 1.5;">Pay per document, no subscription required. See <a href="pricing.html">pricing</a>.</div></div>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: flex-start;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <div><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Direct support</div><div style="font-size: 14px; color: var(--ink-muted); line-height: 1.5;">Reach a real person at support@anyconvert.app when something needs a human.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div style="padding: 88px var(--pad-x); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 22px;">
+    <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 36px; max-width: 20ch;">Ready to integrate?</h2>
+    <p style="margin: 0; font-size: 16.5px; color: var(--ink-muted); max-width: 46ch;">Get your API key and start converting documents in minutes.</p>
+    <a href="pricing.html" style="background: var(--accent); color: var(--accent-ink); padding: 15px 28px; border-radius: 8px; font-size: 16px; font-weight: 600;">Get your API key</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="padding: 56px var(--pad-x) 40px; margin-top: auto; background: var(--surface-2);">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: var(--stack, row); justify-content: space-between; gap: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--line);">
+      <div style="max-width: 260px;">
+        <div style="font-family: var(--font-display); font-weight: 600; font-size: 19px; margin-bottom: 10px;">Any Convert</div>
+        <div style="font-size: 14px; color: var(--ink-muted); line-height: 1.6;">A simple conversion API for teams that need documents turned into the right format, automatically.</div>
+      </div>
+      <div style="display: flex; flex-direction: var(--stack, row); gap: 32px 56px; flex-wrap: wrap;">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 13px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;">Tools</div>
+          <a href="dwg-to-pdf.html" style="font-size: 14.5px; color: var(--ink);">DWG to PDF</a>
+          <a href="pdf-to-word.html" style="font-size: 14.5px; color: var(--ink);">PDF to Word</a>
+          <a href="merge-pdf.html" style="font-size: 14.5px; color: var(--ink);">Merge PDF</a>
+          <a href="jpg-to-pdf.html" style="font-size: 14.5px; color: var(--ink);">JPG to PDF</a>
+          <a href="sign-pdf.html" style="font-size: 14.5px; color: var(--ink);">Sign PDF</a>
+          <a href="edit-pdf.html" style="font-size: 14.5px; color: var(--ink);">Edit PDF</a>
+          <a href="compress-pdf.html" style="font-size: 14.5px; color: var(--ink);">Compress PDF</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 13px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;">Product</div>
+          <a href="docs.html" style="font-size: 14.5px; color: var(--ink);">Docs</a>
+          <a href="pricing.html" style="font-size: 14.5px; color: var(--ink);">Pricing</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 13px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;">Legal</div>
+          <a href="terms.html" style="font-size: 14.5px; color: var(--ink);">Terms of Service</a>
+          <a href="privacy.html" style="font-size: 14.5px; color: var(--ink);">Privacy Policy</a>
+          <a href="refundpolicy.html" style="font-size: 14.5px; color: var(--ink);">Refund Policy</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 13px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;">Support</div>
+          <a href="mailto:support@anyconvert.app" style="font-size: 14.5px; color: var(--ink);">support@anyconvert.app</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width: 1120px; margin: 24px auto 0; font-size: 13px; color: var(--ink-muted);">© 2026 Any Convert. All rights reserved.</div>
+  </div>
+
+</div>
+</body>
+</html>
