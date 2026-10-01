@@ -3,7 +3,7 @@ import { s } from '@/lib/style';
 
 export const metadata: Metadata = {
   title: 'Home',
-  description: 'A document conversion API. Send a file, get the result delivered to your webhook. DWG to PDF is live today.',
+  description: 'A document conversion API. Send a file, get the result delivered to your webhook, with one API key across every tool.',
 };
 
 export default function HomePage() {
@@ -23,8 +23,8 @@ export default function HomePage() {
         <div style={s("width: 11px; height: 11px; border-radius: 50%; background: #4B5157;")}></div>
         <div style={s("width: 11px; height: 11px; border-radius: 50%; background: #4B5157;")}></div>
       </div>
-      <pre style={s("margin: 0; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.7; color: #E9E6DF; white-space: pre-wrap; overflow-wrap: break-word;")}><span style={s("color:#8B92A0;")}># Example: DWG to PDF</span>{'\n'}
-{'curl -X POST https://api.anyconvert.app/webhooks/trigger \\\n  -H "x-api-key: <your key>" \\\n  -F "file=@site-plan.dwg" \\\n  -F "drawingFileId=drawing-001" \\\n  -F "extractionId=extraction-001"\n\n'}<span style={s("color:#8FB18A;")}>→ 202 Accepted</span>{'  {"drawingFileId": "drawing-001", "status": "accepted"}'}</pre>
+      <pre style={s("margin: 0; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.7; color: #E9E6DF; white-space: pre-wrap; overflow-wrap: break-word;")}><span style={s("color:#8B92A0;")}># Example request</span>{'\n'}
+{'curl -X POST https://api.anyconvert.app/webhooks/trigger \\\n  -H "x-api-key: <your key>" \\\n  -F "file=@document.pdf" \\\n  -F "drawingFileId=file-001" \\\n  -F "extractionId=extraction-001"\n\n'}<span style={s("color:#8FB18A;")}>→ 202 Accepted</span>{'  {"drawingFileId": "file-001", "status": "accepted"}'}</pre>
     </div>
   </div>
 
@@ -33,28 +33,10 @@ export default function HomePage() {
     <div style={s("max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px;")}>
       <div style={s("text-align: center; display: flex; flex-direction: column; gap: 12px;")}>
         <h2 style={s("margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 34px;")}>Most popular tools</h2>
-        <p style={s("margin: 0; font-size: 16px; color: var(--ink-muted);")}>DWG to PDF is live today. The rest are on the way.</p>
+        <p style={s("margin: 0; font-size: 16px; color: var(--ink-muted);")}>One API key and one plan, across every tool below.</p>
       </div>
 
       <div style={s("display: grid; grid-template-columns: repeat(var(--grid-cols, 3), minmax(0, 1fr)); gap: 20px;")}>
-
-        {/* DWG TO PDF: live */}
-        <a href="/dwg-to-pdf" style={s("background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; color: var(--ink);")}>
-          <div style={s("display: flex; align-items: flex-start; justify-content: space-between;")}>
-            <div style={s("width: 44px; height: 44px; border-radius: 10px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center;")}>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 17V7a2 2 0 0 1 2-2h6l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg>
-            </div>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s("margin-top: 8px;")}><path d="m9 18 6-6-6-6"/></svg>
-          </div>
-          <div>
-            <div style={s("font-size: 17px; font-weight: 600;")}>DWG to PDF</div>
-            <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Convert DWG drawings to print-ready PDF via webhook.</div>
-          </div>
-          <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;")}>
-            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink);")}>$1.00 / doc</span>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
-          </div>
-        </a>
 
         {/* PDF TO WORD */}
         <a href="/pdf-to-word" style={s("background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; color: var(--ink);")}>
@@ -69,8 +51,8 @@ export default function HomePage() {
             <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Convert PDFs to editable .docx documents.</div>
           </div>
           <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;")}>
-            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink-muted);")}>Coming soon</span>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--ink-muted);")}>Learn more</span>
+            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink);")}>From $0.27 / doc</span>
+            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
           </div>
         </a>
 
@@ -87,8 +69,8 @@ export default function HomePage() {
             <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Combine multiple PDFs into one document.</div>
           </div>
           <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;")}>
-            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink-muted);")}>Coming soon</span>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--ink-muted);")}>Learn more</span>
+            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink);")}>From $0.18 / doc</span>
+            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
           </div>
         </a>
 
@@ -105,8 +87,8 @@ export default function HomePage() {
             <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Turn JPG, PNG, and TIFF images into PDF.</div>
           </div>
           <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;")}>
-            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink-muted);")}>Coming soon</span>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--ink-muted);")}>Learn more</span>
+            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink);")}>From $0.14 / doc</span>
+            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
           </div>
         </a>
 
@@ -123,8 +105,8 @@ export default function HomePage() {
             <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Apply a signature field to a PDF programmatically.</div>
           </div>
           <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;")}>
-            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink-muted);")}>Coming soon</span>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--ink-muted);")}>Learn more</span>
+            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink);")}>From $0.32 / doc</span>
+            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
           </div>
         </a>
 
@@ -141,8 +123,8 @@ export default function HomePage() {
             <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Add text, shapes, and annotations to a PDF.</div>
           </div>
           <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;")}>
-            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink-muted);")}>Coming soon</span>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--ink-muted);")}>Learn more</span>
+            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink);")}>From $0.27 / doc</span>
+            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
           </div>
         </a>
 
@@ -159,8 +141,26 @@ export default function HomePage() {
             <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Shrink file size without losing print quality.</div>
           </div>
           <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;")}>
-            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink-muted);")}>Coming soon</span>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--ink-muted);")}>Learn more</span>
+            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink);")}>From $0.14 / doc</span>
+            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
+          </div>
+        </a>
+
+        {/* DWG TO PDF */}
+        <a href="/dwg-to-pdf" style={s("background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; color: var(--ink);")}>
+          <div style={s("display: flex; align-items: flex-start; justify-content: space-between;")}>
+            <div style={s("width: 44px; height: 44px; border-radius: 10px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center;")}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 17V7a2 2 0 0 1 2-2h6l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s("margin-top: 8px;")}><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+          <div>
+            <div style={s("font-size: 17px; font-weight: 600;")}>DWG to PDF</div>
+            <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Convert DWG drawings to print-ready PDF via webhook.</div>
+          </div>
+          <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;")}>
+            <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink);")}>$1.00 / doc</span>
+            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
           </div>
         </a>
 
@@ -204,11 +204,11 @@ export default function HomePage() {
     <div className="feature-row feature-row-reverse" style={s("display: flex; align-items: center; gap: 64px;")}>
       <div style={s("flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px;")}>
         <h3 style={s("margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 30px;")}>One key, one endpoint</h3>
-        <p style={s("margin: 0; font-size: 16px; line-height: 1.7; color: var(--ink-muted);")}>DWG to PDF runs through a single endpoint today. As more tools go live, they&apos;ll share the same key and the same integration pattern.</p>
+        <p style={s("margin: 0; font-size: 16px; line-height: 1.7; color: var(--ink-muted);")}>Every tool runs through the same single endpoint, with the same API key and the same integration pattern.</p>
         <a href="/docs" style={s("font-size: 15px; font-weight: 600;")}>Read the docs →</a>
       </div>
       <div style={s("flex: 1; min-width: 0; background: #14181D; border-radius: 14px; padding: 26px 28px;")}>
-        <pre style={s("margin: 0; font-family: var(--font-mono); font-size: 13px; line-height: 1.9; color: #E9E6DF; overflow-x: auto;")}>POST <span style={s("color:#8FB18A;")}>/webhooks/trigger</span>{'\nx-api-key: <your key>\n\nfile='}<span style={s("color:#8B92A0;")}>@site-plan.dwg</span>{'\ndrawingFileId='}<span style={s("color:#8B92A0;")}>drawing-001</span>{'\nextractionId='}<span style={s("color:#8B92A0;")}>extraction-001</span></pre>
+        <pre style={s("margin: 0; font-family: var(--font-mono); font-size: 13px; line-height: 1.9; color: #E9E6DF; overflow-x: auto;")}>POST <span style={s("color:#8FB18A;")}>/webhooks/trigger</span>{'\nx-api-key: <your key>\n\nfile='}<span style={s("color:#8B92A0;")}>@document.pdf</span>{'\ndrawingFileId='}<span style={s("color:#8B92A0;")}>file-001</span>{'\nextractionId='}<span style={s("color:#8B92A0;")}>extraction-001</span></pre>
       </div>
     </div>
 
@@ -238,11 +238,11 @@ export default function HomePage() {
         </div>
         <div style={s("display: flex; gap: 14px; align-items: flex-start;")}>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s("flex-shrink: 0; margin-top: 2px;")}><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
-          <div><div style={s("font-size: 15px; font-weight: 600; margin-bottom: 4px;")}>Signed webhook payloads</div><div style={s("font-size: 14px; color: var(--ink-muted); line-height: 1.5;")}>Verify every delivery with an HMAC signature header.</div></div>
+          <div><div style={s("font-size: 15px; font-weight: 600; margin-bottom: 4px;")}>Verified webhook deliveries</div><div style={s("font-size: 14px; color: var(--ink-muted); line-height: 1.5;")}>Every delivery carries a secret header only you and we know.</div></div>
         </div>
         <div style={s("display: flex; gap: 14px; align-items: flex-start;")}>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s("flex-shrink: 0; margin-top: 2px;")}><path d="M4 17V7a2 2 0 0 1 2-2h6l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg>
-          <div><div style={s("font-size: 15px; font-weight: 600; margin-bottom: 4px;")}>DWG to PDF, done right</div><div style={s("font-size: 14px; color: var(--ink-muted); line-height: 1.5;")}>Broad DWG version support, from R13 through 2018.</div></div>
+          <div><div style={s("font-size: 15px; font-weight: 600; margin-bottom: 4px;")}>One key, every tool</div><div style={s("font-size: 14px; color: var(--ink-muted); line-height: 1.5;")}>The same API key and integration pattern across our full tool lineup.</div></div>
         </div>
         <div style={s("display: flex; gap: 14px; align-items: flex-start;")}>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s("flex-shrink: 0; margin-top: 2px;")}><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>

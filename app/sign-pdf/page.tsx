@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
-import ComingSoonTool from '@/components/ComingSoonTool';
+import ToolPage from '@/components/ToolPage';
 
 export const metadata: Metadata = {
   title: 'Sign PDF',
-  description: 'Add signature fields to PDFs automatically. Coming soon on the AnyConvert API.',
+  description: 'Add signature fields to PDFs automatically on the AnyConvert API. Send a file, get the signed PDF delivered to your webhook.',
 };
 
 export default function SignPdfPage() {
   return (
-    <ComingSoonTool
+    <ToolPage
       headline="Add signature fields to PDFs, automatically."
       description="Send a PDF and signer details to one endpoint. We apply the signature field and deliver the signed document to your webhook."
+      price="From $0.32 / doc"
       iconBg="#C64FA0"
       icon={
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

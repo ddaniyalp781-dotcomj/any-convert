@@ -81,9 +81,8 @@ export default function PricingCards({ heading = true }: { heading?: boolean }) 
           <div style={s('text-align: center; display: flex; flex-direction: column; gap: 14px;')}>
             <h1 style={s('margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 44px;')}>Simple, credit-based pricing</h1>
             <p style={s('margin: 0; font-size: 16px; color: var(--ink-muted); max-width: 52ch;')}>
-              Subscribe monthly and get a fresh batch of credits with every renewal. Each credit converts one document; unused credits do not
-              carry over to the next month. Prices below are for DWG to PDF; other tools are priced lower per document, see each tool&apos;s
-              page for its rate.
+              Subscribe monthly and get a fresh batch of credits with every renewal. Each credit converts one document on any tool; unused
+              credits do not carry over to the next month.
             </p>
           </div>
         )}
@@ -99,11 +98,11 @@ export default function PricingCards({ heading = true }: { heading?: boolean }) 
               <div style={s('font-size: 15px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em;')}>
                 Starter
               </div>
-              <div style={s('display: flex; align-items: baseline; gap: 8px; margin-top: 10px;')}>
+              <div style={s('display: flex; align-items: baseline; gap: 6px; margin-top: 10px;')}>
                 <span style={s('font-family: var(--font-display); font-size: 44px; font-weight: 600;')}>$100</span>
-                <span style={s('font-size: 15px; color: var(--ink-muted);')}>/ 100 documents</span>
+                <span style={s('font-size: 15px; color: var(--ink-muted);')}>/month</span>
               </div>
-              <div style={s('font-size: 14px; color: var(--ink-muted); margin-top: 4px;')}>$1.00 per document</div>
+              <div style={s('font-size: 14px; color: var(--ink-muted); margin-top: 4px;')}>100 documents · $1.00 per document</div>
             </div>
             <div style={s('height: 1px; background: var(--line);')} />
             <ul style={s('margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; color: var(--ink);')}>
@@ -147,11 +146,11 @@ export default function PricingCards({ heading = true }: { heading?: boolean }) 
               <div style={s('font-size: 15px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em;')}>
                 Growth
               </div>
-              <div style={s('display: flex; align-items: baseline; gap: 8px; margin-top: 10px;')}>
+              <div style={s('display: flex; align-items: baseline; gap: 6px; margin-top: 10px;')}>
                 <span style={s('font-family: var(--font-display); font-size: 44px; font-weight: 600;')}>$180</span>
-                <span style={s('font-size: 15px; color: var(--ink-muted);')}>/ 200 documents</span>
+                <span style={s('font-size: 15px; color: var(--ink-muted);')}>/month</span>
               </div>
-              <div style={s('font-size: 14px; color: var(--ink-muted); margin-top: 4px;')}>$0.90 per document</div>
+              <div style={s('font-size: 14px; color: var(--ink-muted); margin-top: 4px;')}>200 documents · $0.90 per document</div>
             </div>
             <div style={s('height: 1px; background: var(--line);')} />
             <ul style={s('margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; color: var(--ink);')}>

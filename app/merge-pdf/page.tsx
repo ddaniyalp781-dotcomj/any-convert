@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
-import ComingSoonTool from '@/components/ComingSoonTool';
+import ToolPage from '@/components/ToolPage';
 
 export const metadata: Metadata = {
   title: 'Merge PDF',
-  description: 'Merge PDFs automatically. Coming soon on the AnyConvert API.',
+  description: 'Merge PDFs automatically on the AnyConvert API. Send your files, get the combined PDF delivered to your webhook.',
 };
 
 export default function MergePdfPage() {
   return (
-    <ComingSoonTool
+    <ToolPage
       headline="Merge PDFs, automatically."
       description="Send multiple PDF files to one endpoint. We combine them into a single document and deliver it to your webhook."
+      price="From $0.18 / doc"
       iconBg="#6D4FC4"
       icon={
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

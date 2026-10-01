@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
-import ComingSoonTool from '@/components/ComingSoonTool';
+import ToolPage from '@/components/ToolPage';
 
 export const metadata: Metadata = {
   title: 'Edit PDF',
-  description: 'Edit PDFs automatically. Coming soon on the AnyConvert API.',
+  description: 'Edit PDFs automatically on the AnyConvert API. Send a file with your changes, get the result delivered to your webhook.',
 };
 
 export default function EditPdfPage() {
   return (
-    <ComingSoonTool
+    <ToolPage
       headline="Edit PDFs, automatically."
       description="Send a PDF with edit instructions to one endpoint. We apply text, shape, and annotation changes and deliver the result to your webhook."
+      price="From $0.27 / doc"
       iconBg="#2E9B8F"
       icon={
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -2,13 +2,13 @@ import Link from 'next/link';
 import { s } from '@/lib/style';
 
 const TOOLS = [
-  { href: '/dwg-to-pdf', label: 'DWG to PDF' },
   { href: '/pdf-to-word', label: 'PDF to Word' },
   { href: '/merge-pdf', label: 'Merge PDF' },
   { href: '/jpg-to-pdf', label: 'JPG to PDF' },
   { href: '/sign-pdf', label: 'Sign PDF' },
   { href: '/edit-pdf', label: 'Edit PDF' },
   { href: '/compress-pdf', label: 'Compress PDF' },
+  { href: '/dwg-to-pdf', label: 'DWG to PDF' },
 ];
 
 export default function Footer() {
