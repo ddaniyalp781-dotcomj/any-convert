@@ -1,0 +1,87 @@
+:root {
+  --pad-x: 64px;
+  --bg: #faf8f4;
+  --surface: #ffffff;
+  --surface-2: #f1eee7;
+  --ink: #1c1f22;
+  --ink-muted: #5b6169;
+  --line: #e4e1da;
+  --accent: #2452b0;
+  --accent-ink: #ffffff;
+  --accent-soft: #e8eefa;
+  --success: #2f7d5b;
+  --success-soft: #e7f3ec;
+  --danger: #b3432b;
+  --danger-soft: #fbeae4;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+code {
+  font-family: var(--font-mono);
+  background: var(--surface-2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.92em;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+button {
+  font-family: inherit;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --pad-x: 20px;
+  }
+
+  table.settings-table {
+    display: block;
+  }
+
+  table.settings-table tr {
+    display: block;
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+  }
+
+  table.settings-table td {
+    display: block;
+    border: none !important;
+    padding: 2px 0 !important;
+  }
+}

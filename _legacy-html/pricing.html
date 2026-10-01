@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Any Convert: Pricing</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --pad-x:64px; --stack:row;
+  --bg:#FAF8F4; --surface:#FFFFFF; --surface-2:#F1EEE7;
+  --ink:#1C1F22; --ink-muted:#5B6169;
+  --line:#E4E1DA;
+  --accent:#2452B0; --accent-ink:#FFFFFF; --accent-soft:#E8EEFA;
+  --success:#2F7D5B; --success-soft:#E7F3EC;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'IBM Plex Sans',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;
+}
+body{margin:0;background:var(--bg);font-family:var(--font-body);color:var(--ink);}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.nav-burger{display:none;}
+@media (max-width: 720px){
+  :root{--pad-x:20px; --stack:column;}
+  .nav-burger{display:flex !important; align-items:center; justify-content:center;}
+  .nav-links{display:none !important; flex-direction:column !important; align-items:flex-start !important; position:absolute; top:100%; left:0; right:0; background:var(--bg); padding:16px 20px !important; border-bottom:1px solid var(--line); gap:16px !important; box-shadow:0 12px 24px -12px rgba(28,31,34,0.15);}
+  #nav-toggle:checked ~ .nav-links{display:flex !important;}
+  h1{font-size:34px !important;}
+}
+</style>
+</head>
+<body>
+<div style="width: 100%; min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column;">
+
+  <!-- NAV -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px var(--pad-x); border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 10;">
+    <a href="index.html" style="display: flex; align-items: center;"><img src="logo.png" alt="Any Convert" style="height: 30px; width: auto; display: block;"></a>
+    <input type="checkbox" id="nav-toggle" style="display:none;">
+    <label for="nav-toggle" class="nav-burger" onclick="event.preventDefault(); var c=document.getElementById('nav-toggle'); c.checked=!c.checked;" style="cursor:pointer; padding:6px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></label>
+    <div class="nav-links" style="display: flex; align-items: center; gap: 36px;">
+      <a href="index.html#tools" style="font-size: 15px; font-weight: 500; color: var(--ink);">Tools</a>
+      <a href="docs.html" style="font-size: 15px; font-weight: 500; color: var(--ink);">Docs</a>
+      <span style="font-size: 15px; font-weight: 600; color: var(--accent);">Pricing</span>
+      <a href="#plans" style="background: var(--accent); color: var(--accent-ink); padding: 10px 20px; border-radius: 8px; font-size: 15px; font-weight: 600;">Get your API key</a>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div style="padding: 88px var(--pad-x);">
+    <div style="max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px; align-items: center;">
+      <div style="text-align: center; display: flex; flex-direction: column; gap: 14px;">
+        <h1 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 44px;">Simple, credit-based pricing</h1>
+        <p style="margin: 0; font-size: 16px; color: var(--ink-muted); max-width: 52ch;">Subscribe monthly and get a fresh batch of credits with every renewal. Each credit converts one document; unused credits do not carry over to the next month. Prices below are for DWG to PDF; other tools are priced lower per document, see each tool's page for its rate.</p>
+      </div>
+      <div id="plans" style="display: flex; flex-direction: var(--stack, row); gap: 28px; width: 100%;">
+        <div style="flex: 1; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 32px; display: flex; flex-direction: column; gap: 20px;">
+          <div>
+            <div style="font-size: 15px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em;">Starter</div>
+            <div style="display: flex; align-items: baseline; gap: 8px; margin-top: 10px;">
+              <span style="font-family: var(--font-display); font-size: 44px; font-weight: 600;">$100</span>
+              <span style="font-size: 15px; color: var(--ink-muted);">/ 100 documents</span>
+            </div>
+            <div style="font-size: 14px; color: var(--ink-muted); margin-top: 4px;">$1.00 per document</div>
+          </div>
+          <div style="height: 1px; background: var(--line);"></div>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; color: var(--ink);">
+            <li style="display: flex; gap: 10px;"><span style="color: var(--success); font-weight: 700;">✓</span> Full API access</li>
+            <li style="display: flex; gap: 10px;"><span style="color: var(--success); font-weight: 700;">✓</span> Webhook delivery</li>
+            <li style="display: flex; gap: 10px;"><span style="color: var(--success); font-weight: 700;">✓</span> Renews automatically every month</li>
+            <li style="display: flex; gap: 10px;"><span style="color: var(--success); font-weight: 700;">✓</span> Email support</li>
+          </ul>
+          <button onclick="buyPlan('starter')" style="text-align: center; border: 1px solid var(--ink); color: var(--ink); padding: 12px 20px; border-radius: 8px; font-size: 15px; font-weight: 600; margin-top: 8px; background: none; cursor: pointer; font-family: inherit; width: 100%;">Buy Starter</button>
+        </div>
+        <div style="flex: 1; background: var(--surface); border: 2px solid var(--accent); border-radius: 14px; padding: 32px; display: flex; flex-direction: column; gap: 20px; position: relative;">
+          <div style="position: absolute; top: -13px; right: 28px; background: var(--accent); color: var(--accent-ink); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 100px; letter-spacing: 0.02em;">BEST VALUE</div>
+          <div>
+            <div style="font-size: 15px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em;">Growth</div>
+            <div style="display: flex; align-items: baseline; gap: 8px; margin-top: 10px;">
+              <span style="font-family: var(--font-display); font-size: 44px; font-weight: 600;">$180</span>
+              <span style="font-size: 15px; color: var(--ink-muted);">/ 200 documents</span>
+            </div>
+            <div style="font-size: 14px; color: var(--ink-muted); margin-top: 4px;">$0.90 per document</div>
+          </div>
+          <div style="height: 1px; background: var(--line);"></div>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; color: var(--ink);">
+            <li style="display: flex; gap: 10px;"><span style="color: var(--success); font-weight: 700;">✓</span> Everything in Starter</li>
+            <li style="display: flex; gap: 10px;"><span style="color: var(--success); font-weight: 700;">✓</span> 10% lower per-document rate</li>
+            <li style="display: flex; gap: 10px;"><span style="color: var(--success); font-weight: 700;">✓</span> Priority processing</li>
+            <li style="display: flex; gap: 10px;"><span style="color: var(--success); font-weight: 700;">✓</span> Priority support</li>
+          </ul>
+          <button onclick="buyPlan('growth')" style="text-align: center; background: var(--accent); color: var(--accent-ink); padding: 12px 20px; border-radius: 8px; font-size: 15px; font-weight: 600; margin-top: 8px; border: none; cursor: pointer; font-family: inherit; width: 100%;">Buy Growth</button>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 14px; color: var(--ink-muted); text-align: center;">Your plan renews automatically every month, and your credit balance resets to your plan's monthly allowance; unused credits do not carry over. You can cancel anytime from the confirmation email we send after checkout. See the full breakdown in our <a href="refundpolicy.html">Refund Policy</a>.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="padding: 40px var(--pad-x); margin-top: auto; border-top: 1px solid var(--line);">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: var(--stack, row); justify-content: space-between; align-items: center; gap: 12px; font-size: 13px; color: var(--ink-muted);">
+      <div>© 2026 Any Convert. All rights reserved.</div>
+      <div style="display: flex; gap: 24px;">
+        <a href="terms.html" style="color: var(--ink-muted);">Terms</a>
+        <a href="privacy.html" style="color: var(--ink-muted);">Privacy</a>
+        <a href="refundpolicy.html" style="color: var(--ink-muted);">Refunds</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT RESULT -->
+  <div id="checkout-result" style="display:none; position: fixed; inset: 0; background: rgba(28,31,34,0.55); z-index: 200; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: var(--surface); border-radius: 14px; padding: 32px; max-width: 440px; width: 100%; text-align: center; position: relative;">
+      <button onclick="closeCheckoutResult()" style="position: absolute; top: 12px; right: 12px; background: none; border: none; cursor: pointer; font-size: 18px; color: var(--ink-muted); line-height: 1;">&times;</button>
+      <div id="checkout-result-body"></div>
+    </div>
+  </div>
+
+</div>
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+<script>
+var PADDLE_CONFIG = {
+  environment: 'sandbox',
+  clientToken: 'test_e14d7bd157c47cabc427c33cb1d',
+  priceIds: { starter: 'pri_01m3p1vv0fr6kapq0mt9zwrgs4', growth: 'pri_01m3p1tby8yfyegpqqfd2pt1sm' },
+  apiBase: 'https://api.anyconvert.app'
+};
+Paddle.Environment.set(PADDLE_CONFIG.environment);
+Paddle.Initialize({
+  token: PADDLE_CONFIG.clientToken,
+  eventCallback: function (event) {
+    if (event.name === 'checkout.completed') {
+      pollForApiKey(event.data.transaction_id);
+    }
+  }
+});
+function buyPlan(plan) {
+  Paddle.Checkout.open({
+    items: [{ priceId: PADDLE_CONFIG.priceIds[plan], quantity: 1 }],
+    customData: { plan: plan }
+  });
+}
+function showCheckoutResult(html) {
+  document.getElementById('checkout-result-body').innerHTML = html;
+  document.getElementById('checkout-result').style.display = 'flex';
+}
+function closeCheckoutResult() {
+  document.getElementById('checkout-result').style.display = 'none';
+}
+function copyCheckoutApiKey(button) {
+  var keyText = document.getElementById('checkout-api-key').textContent;
+  var copyIcon = button.querySelector('.copy-icon');
+  var checkIcon = button.querySelector('.check-icon');
+  function onCopied() {
+    copyIcon.style.display = 'none';
+    checkIcon.style.display = 'block';
+    setTimeout(function () {
+      copyIcon.style.display = 'block';
+      checkIcon.style.display = 'none';
+    }, 1500);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(keyText).then(onCopied).catch(function () { fallbackCopyText(keyText, onCopied); });
+  } else {
+    fallbackCopyText(keyText, onCopied);
+  }
+}
+function fallbackCopyText(text, done) {
+  var textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(textarea);
+  done();
+}
+function pollForApiKey(transactionId) {
+  showCheckoutResult('<div style="font-size:16px;font-weight:600;">Finishing setup…</div><div style="font-size:14px;color:var(--ink-muted);margin-top:8px;">Hang tight, this takes a few seconds.</div>');
+  var attempts = 0;
+  var maxAttempts = 10;
+  var interval = setInterval(function () {
+    attempts++;
+    fetch(PADDLE_CONFIG.apiBase + '/billing/transactions/' + transactionId)
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.ready) {
+          clearInterval(interval);
+          if (data.apiKey) {
+            showCheckoutResult(
+              '<div style="font-size:18px;font-weight:700;font-family:var(--font-display);">You are all set</div>' +
+              '<div style="font-size:14px;color:var(--ink-muted);margin-top:8px;">Save this API key now, we cannot show it again.</div>' +
+              '<div style="display:flex;align-items:center;gap:8px;background:var(--surface-2);border-radius:8px;padding:14px;margin-top:16px;">' +
+                '<div id="checkout-api-key" style="flex:1;font-family:var(--font-mono);font-size:13px;word-break:break-all;text-align:left;">' + data.apiKey + '</div>' +
+                '<button onclick="copyCheckoutApiKey(this)" aria-label="Copy API key" style="flex-shrink:0;display:flex;align-items:center;justify-content:center;width:32px;height:32px;background:var(--surface);border:1px solid var(--line);color:var(--ink);border-radius:6px;cursor:pointer;padding:0;">' +
+                  '<svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
+                  '<svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;color:var(--success);"><polyline points="20 6 9 17 4 12"/></svg>' +
+                '</button>' +
+              '</div>' +
+              '<a href="docs.html" style="display:inline-block;margin-top:16px;background:var(--accent);color:var(--accent-ink);padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;">View API docs</a>'
+            );
+          } else {
+            showCheckoutResult('<div style="font-size:16px;font-weight:600;">Already retrieved</div><div style="font-size:14px;color:var(--ink-muted);margin-top:8px;">This key was already shown once. Email support@anyconvert.app if you need help.</div>');
+          }
+        } else if (attempts >= maxAttempts) {
+          clearInterval(interval);
+          showCheckoutResult('<div style="font-size:16px;font-weight:600;">Almost there</div><div style="font-size:14px;color:var(--ink-muted);margin-top:8px;">This is taking longer than expected. Email support@anyconvert.app with your payment receipt and we will get you set up.</div>');
+        }
+      })
+      .catch(function () {
+        if (attempts >= maxAttempts) {
+          clearInterval(interval);
+          showCheckoutResult('<div style="font-size:16px;font-weight:600;">Something went wrong</div><div style="font-size:14px;color:var(--ink-muted);margin-top:8px;">Email support@anyconvert.app with your payment receipt and we will get you set up.</div>');
+        }
+      });
+  }, 2000);
+}
+</script>
+</body>
+</html>

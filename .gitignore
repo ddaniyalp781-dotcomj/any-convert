@@ -1,2 +1,15 @@
+# Next.js
+/.next/
+/out/
+/node_modules
+
+# Vercel
 .vercel
+
+# Env
 .env*
+
+# Misc
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts

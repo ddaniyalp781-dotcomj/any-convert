@@ -64,7 +64,7 @@ code{font-family:var(--font-mono);background:var(--surface-2);padding:2px 6px;bo
     <div style="display: flex; flex-direction: column; gap: 14px;">
       <h2 style="margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 24px; padding-top: 8px; border-top: 1px solid var(--line);">Authentication</h2>
       <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: var(--ink); max-width: 68ch;">Every request needs your API key as a bearer token in the <code>Authorization</code> header. Find and rotate your key from the dashboard.</p>
-      <pre style="margin: 0; background: #14181D; color: #E9E6DF; padding: 18px 20px; border-radius: 10px; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto;">Authorization: Bearer ac_live_xxxxxxxxxxxxxxxx</pre>
+      <pre style="margin: 0; background: #14181D; color: #E9E6DF; padding: 18px 20px; border-radius: 10px; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto;">Authorization: Bearer sk_live_xxxxxxxxxxxxxxxx</pre>
     </div>
 
     <!-- CONVERT ENDPOINT -->
@@ -97,7 +97,7 @@ code{font-family:var(--font-mono);background:var(--surface-2);padding:2px 6px;bo
 
       <div style="margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em;">curl</div>
       <pre style="margin: 0; background: #14181D; color: #E9E6DF; padding: 18px 20px; border-radius: 10px; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto; white-space: pre-wrap;">curl -X POST https://api.anyconvert.app/v1/convert \
-  -H "Authorization: Bearer ac_live_..." \
+  -H "Authorization: Bearer sk_live_..." \
   -F "file=@site-plan.dwg" \
   -F "strategy=dwg_to_pdf" \
   -F "webhook_url=https://yourapp.com/webhooks/pdf"</pre>
@@ -221,7 +221,7 @@ X-Signature: sha256=8b1a99...
 with open("site-plan.dwg", "rb") as f:
     response = requests.post(
         "https://api.anyconvert.app/v1/convert",
-        headers={"Authorization": "Bearer ac_live_..."},
+        headers={"Authorization": "Bearer sk_live_..."},
         files={"file": f},
         data={"strategy": "dwg_to_pdf", "webhook_url": "https://yourapp.com/webhooks/pdf"},
     )
@@ -236,7 +236,7 @@ form.append("webhook_url", "https://yourapp.com/webhooks/pdf");
 
 const res = await fetch("https://api.anyconvert.app/v1/convert", {
   method: "POST",
-  headers: { Authorization: "Bearer ac_live_..." },
+  headers: { Authorization: "Bearer sk_live_..." },
   body: form,
 });
 

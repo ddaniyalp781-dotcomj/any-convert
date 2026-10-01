@@ -67,7 +67,7 @@ a:hover{text-decoration:underline;}
       </div>
       <pre style="margin: 0; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.7; color: #E9E6DF; white-space: pre-wrap; overflow-wrap: break-word;"><span style="color:#8B92A0;"># Example: DWG to PDF</span>
 curl -X POST https://api.anyconvert.app/v1/convert \
-  -H "Authorization: Bearer ac_live_..." \
+  -H "Authorization: Bearer sk_live_..." \
   -F "file=@site-plan.dwg" \
   -F "strategy=dwg_to_pdf" \
   -F "webhook_url=https://yourapp.com/webhooks/pdf"
@@ -251,7 +251,7 @@ curl -X POST https://api.anyconvert.app/v1/convert \
       </div>
       <div style="flex: 1; min-width: 0; background: #14181D; border-radius: 14px; padding: 26px 28px;">
         <pre style="margin: 0; font-family: var(--font-mono); font-size: 13px; line-height: 1.9; color: #E9E6DF; overflow-x: auto;">POST <span style="color:#8FB18A;">/v1/convert</span>
-Authorization: Bearer ac_live_...
+Authorization: Bearer sk_live_...
 
 strategy=<span style="color:#8B92A0;">dwg_to_pdf</span>
 strategy=<span style="color:#8B92A0;">pdf_to_word</span>
