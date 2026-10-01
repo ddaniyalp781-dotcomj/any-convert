@@ -24,22 +24,24 @@ export default function RefundPolicyPage() {
       <h2 style={s("margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; padding-top: 8px; border-top: 1px solid var(--line);")}>2. When a Credit Is Charged</h2>
       <p style={s("margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink);")}>A credit is charged as soon as we accept your request and queue it for processing, not when the conversion finishes. This means a credit is used whether the conversion later succeeds or fails, for example if the file could not be read or the conversion tool encountered an error. We recommend confirming your file is a valid, supported format before submitting it, since a failed conversion still uses a credit. A request is not charged if we never accept it in the first place, such as when your account has no credits remaining or the request is rejected before it's queued.</p>
       <table style={s("margin-top: 4px;")}>
-        <tr style={s("border-bottom: 1px solid var(--line);")}>
-          <td style={s("padding: 10px 0; font-size: 14px; font-weight: 600; width: 55%;")}>When this happens</td>
-          <td style={s("padding: 10px 0; font-size: 14px; font-weight: 600;")}>Credit charged?</td>
-        </tr>
-        <tr style={s("border-bottom: 1px solid var(--line);")}>
-          <td style={s("padding: 10px 0; font-size: 14px;")}>Request accepted and queued, conversion completes and is delivered</td>
-          <td style={s("padding: 10px 0; font-size: 14px; color: var(--success); font-weight: 600;")}>Yes, 1 credit</td>
-        </tr>
-        <tr style={s("border-bottom: 1px solid var(--line);")}>
-          <td style={s("padding: 10px 0; font-size: 14px;")}>Request accepted and queued, conversion later fails (invalid file, conversion error, timeout)</td>
-          <td style={s("padding: 10px 0; font-size: 14px; color: var(--success); font-weight: 600;")}>Yes, 1 credit</td>
-        </tr>
-        <tr>
-          <td style={s("padding: 10px 0; font-size: 14px;")}>Request never accepted (no credits remaining, invalid request)</td>
-          <td style={s("padding: 10px 0; font-size: 14px; color: var(--ink-muted); font-weight: 600;")}>No</td>
-        </tr>
+        <tbody>
+          <tr style={s("border-bottom: 1px solid var(--line);")}>
+            <td style={s("padding: 10px 0; font-size: 14px; font-weight: 600; width: 55%;")}>When this happens</td>
+            <td style={s("padding: 10px 0; font-size: 14px; font-weight: 600;")}>Credit charged?</td>
+          </tr>
+          <tr style={s("border-bottom: 1px solid var(--line);")}>
+            <td style={s("padding: 10px 0; font-size: 14px;")}>Request accepted and queued, conversion completes and is delivered</td>
+            <td style={s("padding: 10px 0; font-size: 14px; color: var(--success); font-weight: 600;")}>Yes, 1 credit</td>
+          </tr>
+          <tr style={s("border-bottom: 1px solid var(--line);")}>
+            <td style={s("padding: 10px 0; font-size: 14px;")}>Request accepted and queued, conversion later fails (invalid file, conversion error, timeout)</td>
+            <td style={s("padding: 10px 0; font-size: 14px; color: var(--success); font-weight: 600;")}>Yes, 1 credit</td>
+          </tr>
+          <tr>
+            <td style={s("padding: 10px 0; font-size: 14px;")}>Request never accepted (no credits remaining, invalid request)</td>
+            <td style={s("padding: 10px 0; font-size: 14px; color: var(--ink-muted); font-weight: 600;")}>No</td>
+          </tr>
+        </tbody>
       </table>
     </div>
 
