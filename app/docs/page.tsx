@@ -52,25 +52,17 @@ export default function DocsPage() {
               <td style={s('padding: 10px 0; font-size: 14px; color: var(--ink-muted);')}>The file to convert.</td>
             </tr>
             <tr style={s('border-bottom: 1px solid var(--line);')}>
-              <td style={s('padding: 10px 0; font-size: 14px; font-weight: 600;')}>drawingFileId</td>
+              <td style={s('padding: 10px 0; font-size: 14px; font-weight: 600;')}>fileId</td>
               <td style={s('padding: 10px 0; font-size: 14px; color: var(--ink-muted);')}>string, required</td>
               <td style={s('padding: 10px 0; font-size: 14px; color: var(--ink-muted);')}>
                 An id you choose to identify this file (letters, numbers, <code>_</code> and <code>-</code>, up to 64 characters).
                 Re-using an id for a new upload supersedes any in-progress job for it.
               </td>
             </tr>
-            <tr style={s('border-bottom: 1px solid var(--line);')}>
-              <td style={s('padding: 10px 0; font-size: 14px; font-weight: 600;')}>extractionId</td>
-              <td style={s('padding: 10px 0; font-size: 14px; color: var(--ink-muted);')}>string, required</td>
-              <td style={s('padding: 10px 0; font-size: 14px; color: var(--ink-muted);')}>An id you choose for your own tracking, same format as drawingFileId. Echoed back on delivery.</td>
-            </tr>
             <tr>
-              <td style={s('padding: 10px 0; font-size: 14px; font-weight: 600;')}>language</td>
-              <td style={s('padding: 10px 0; font-size: 14px; color: var(--ink-muted);')}>string, optional</td>
-              <td style={s('padding: 10px 0; font-size: 14px; color: var(--ink-muted);')}>
-                One of <code>en</code>, <code>pt</code>, <code>ja</code>, <code>de</code>, <code>es</code>, <code>zh</code>. Controls the
-                language of error messages. Defaults to <code>en</code>.
-              </td>
+              <td style={s('padding: 10px 0; font-size: 14px; font-weight: 600;')}>referenceId</td>
+              <td style={s('padding: 10px 0; font-size: 14px; color: var(--ink-muted);')}>string, required</td>
+              <td style={s('padding: 10px 0; font-size: 14px; color: var(--ink-muted);')}>An id you choose for your own tracking, same format as fileId. Echoed back on delivery.</td>
             </tr>
           </tbody>
         </table>
@@ -79,17 +71,17 @@ export default function DocsPage() {
           curl
         </div>
         <pre style={s('margin: 0; background: #14181D; color: #E9E6DF; padding: 18px 20px; border-radius: 10px; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto; white-space: pre-wrap;')}>
-          {'curl -X POST https://api.anyconvert.app/webhooks/trigger \\\n  -H "x-api-key: your_api_key_here" \\\n  -F "file=@document.pdf" \\\n  -F "drawingFileId=file-001" \\\n  -F "extractionId=extraction-001"'}
+          {'curl -X POST https://api.anyconvert.app/webhooks/trigger \\\n  -H "x-api-key: your_api_key_here" \\\n  -F "file=@document.pdf" \\\n  -F "fileId=file-001" \\\n  -F "referenceId=reference-001"'}
         </pre>
 
         <div style={s('margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em;')}>
           Response: 202 Accepted
         </div>
         <pre style={s('margin: 0; background: #14181D; color: #E9E6DF; padding: 18px 20px; border-radius: 10px; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto;')}>
-          {'{\n  "drawingFileId": "file-001",\n  "status": "accepted"\n}'}
+          {'{\n  "fileId": "file-001",\n  "status": "accepted"\n}'}
         </pre>
         <p style={s('margin: 0; font-size: 14px; color: var(--ink-muted);')}>
-          <code>status</code> is <code>&quot;already_accepted&quot;</code> instead if a job for the same <code>drawingFileId</code> is already in progress.
+          <code>status</code> is <code>&quot;already_accepted&quot;</code> instead if a job for the same <code>fileId</code> is already in progress.
         </p>
       </div>
 
@@ -101,8 +93,8 @@ export default function DocsPage() {
           <code style={s('background: none; padding: 0; font-size: 15px;')}>/webhooks/cancel</code>
         </div>
         <p style={s('margin: 0; font-size: 15.5px; line-height: 1.7; color: var(--ink); max-width: 68ch;')}>
-          Stops a conversion that hasn&apos;t produced an outcome yet. Sends no webhook. Takes <code>drawingFileId</code> as JSON and
-          returns <code>{'{ "drawingFileId", "result": "cancelled" | "not_active" }'}</code> — <code>not_active</code> covers a job
+          Stops a conversion that hasn&apos;t produced an outcome yet. Sends no webhook. Takes <code>fileId</code> as JSON and
+          returns <code>{'{ "fileId", "result": "cancelled" | "not_active" }'}</code> — <code>not_active</code> covers a job
           that&apos;s already delivering, finished, or unknown.
         </p>
       </div>
@@ -119,21 +111,21 @@ export default function DocsPage() {
         </p>
         <p style={s('margin: 0; font-size: 15.5px; line-height: 1.7; color: var(--ink); max-width: 68ch;')}>
           Both outcomes below arrive the same way: one <code>multipart/form-data</code> POST to your webhook URL, carrying{' '}
-          <code>drawingFileId</code>, <code>extractionId</code>, and <code>outcome</code> on every delivery.
+          <code>fileId</code>, <code>referenceId</code>, and <code>outcome</code> on every delivery.
         </p>
 
         <div style={s('margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em;')}>
           On success: multipart/form-data POST
         </div>
         <pre style={s('margin: 0; background: #14181D; color: #E9E6DF; padding: 18px 20px; border-radius: 10px; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto;')}>
-          {'POST https://yourapp.com/your-webhook-path\nx-webhook-secret: <your webhook secret>\n\ndrawingFileId=file-001\nextractionId=extraction-001\noutcome=success\nfile=<the converted file, binary>'}
+          {'POST https://yourapp.com/your-webhook-path\nx-webhook-secret: <your webhook secret>\n\nfileId=file-001\nreferenceId=reference-001\noutcome=success\nfile=<the converted file, binary>'}
         </pre>
 
         <div style={s('margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em;')}>
           On failure: multipart/form-data POST
         </div>
         <pre style={s('margin: 0; background: #14181D; color: #E9E6DF; padding: 18px 20px; border-radius: 10px; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto;')}>
-          {'POST https://yourapp.com/your-webhook-path\nx-webhook-secret: <your webhook secret>\n\ndrawingFileId=file-001\nextractionId=extraction-001\noutcome=failure\nreason=invalid_file\nmessage=The file could not be read\ndetail=...'}
+          {'POST https://yourapp.com/your-webhook-path\nx-webhook-secret: <your webhook secret>\n\nfileId=file-001\nreferenceId=reference-001\noutcome=failure\nreason=invalid_file\nmessage=The file could not be read\ndetail=...'}
         </pre>
         <p style={s('margin: 0; font-size: 14px; color: var(--ink-muted);')}>
           <code>reason</code> is one of <code>invalid_file</code>, <code>dwg_conversion_failed</code>, <code>render_failed</code>,{' '}
@@ -149,8 +141,7 @@ export default function DocsPage() {
         </div>
         <p style={s('margin: 0; font-size: 14px; color: var(--ink-muted);')}>
           Retry policy: delivery is attempted immediately, then retried twice more (after 30 seconds, then 2 minutes) if your endpoint
-          doesn&apos;t answer with a 2xx. After 3 failed attempts, delivery stops — email support@anyconvert.app with your{' '}
-          <code>drawingFileId</code> to recover it.
+          doesn&apos;t answer with a 2xx. After 3 failed attempts, delivery stops.
         </p>
       </div>
 
@@ -189,7 +180,7 @@ export default function DocsPage() {
 
       <div style={s('padding: 20px 24px; background: var(--accent-soft); border-radius: 10px;')}>
         <p style={s('margin: 0; font-size: 14.5px; line-height: 1.7; color: var(--ink);')}>
-          Not yet available: a sandbox/test API key, a job-status lookup endpoint, and a public changelog. If you need any of these for your integration, email{' '}
+          Not yet available: a job-status lookup endpoint and a public changelog. If you need either of these for your integration, email{' '}
           <a href="mailto:support@anyconvert.app">support@anyconvert.app</a>.
         </p>
       </div>

@@ -28,7 +28,7 @@ export default function DwgToPdfPage() {
           <div style={s("width: 11px; height: 11px; border-radius: 50%; background: #4B5157;")}></div>
           <div style={s("width: 11px; height: 11px; border-radius: 50%; background: #4B5157;")}></div>
         </div>
-        <pre style={s("margin: 0; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.7; color: #E9E6DF; white-space: pre-wrap; overflow-wrap: break-word;")}>{'curl -X POST https://api.anyconvert.app/webhooks/trigger \\\n  -H "x-api-key: <your key>" \\\n  -F "file=@site-plan.dwg" \\\n  -F "drawingFileId=drawing-001" \\\n  -F "extractionId=extraction-001"\n\n'}<span style={s("color:#8FB18A;")}>→ 202 Accepted</span>{'\n{"drawingFileId": "drawing-001", "status": "accepted"}'}</pre>
+        <pre style={s("margin: 0; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.7; color: #E9E6DF; white-space: pre-wrap; overflow-wrap: break-word;")}>{'curl -X POST https://api.anyconvert.app/webhooks/trigger \\\n  -H "x-api-key: <your key>" \\\n  -F "file=@site-plan.dwg" \\\n  -F "fileId=drawing-001" \\\n  -F "referenceId=reference-001"\n\n'}<span style={s("color:#8FB18A;")}>→ 202 Accepted</span>{'\n{"fileId": "drawing-001", "status": "accepted"}'}</pre>
       </div>
     </div>
   </div>

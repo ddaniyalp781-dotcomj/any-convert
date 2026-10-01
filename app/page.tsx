@@ -24,7 +24,7 @@ export default function HomePage() {
         <div style={s("width: 11px; height: 11px; border-radius: 50%; background: #4B5157;")}></div>
       </div>
       <pre style={s("margin: 0; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.7; color: #E9E6DF; white-space: pre-wrap; overflow-wrap: break-word;")}><span style={s("color:#8B92A0;")}># Example request</span>{'\n'}
-{'curl -X POST https://api.anyconvert.app/webhooks/trigger \\\n  -H "x-api-key: <your key>" \\\n  -F "file=@document.pdf" \\\n  -F "drawingFileId=file-001" \\\n  -F "extractionId=extraction-001"\n\n'}<span style={s("color:#8FB18A;")}>→ 202 Accepted</span>{'  {"drawingFileId": "file-001", "status": "accepted"}'}</pre>
+{'curl -X POST https://api.anyconvert.app/webhooks/trigger \\\n  -H "x-api-key: <your key>" \\\n  -F "file=@document.pdf" \\\n  -F "fileId=file-001" \\\n  -F "referenceId=reference-001"\n\n'}<span style={s("color:#8FB18A;")}>→ 202 Accepted</span>{'  {"fileId": "file-001", "status": "accepted"}'}</pre>
     </div>
   </div>
 
@@ -208,7 +208,7 @@ export default function HomePage() {
         <a href="/docs" style={s("font-size: 15px; font-weight: 600;")}>Read the docs →</a>
       </div>
       <div style={s("flex: 1; min-width: 0; background: #14181D; border-radius: 14px; padding: 26px 28px;")}>
-        <pre style={s("margin: 0; font-family: var(--font-mono); font-size: 13px; line-height: 1.9; color: #E9E6DF; overflow-x: auto;")}>POST <span style={s("color:#8FB18A;")}>/webhooks/trigger</span>{'\nx-api-key: <your key>\n\nfile='}<span style={s("color:#8B92A0;")}>@document.pdf</span>{'\ndrawingFileId='}<span style={s("color:#8B92A0;")}>file-001</span>{'\nextractionId='}<span style={s("color:#8B92A0;")}>extraction-001</span></pre>
+        <pre style={s("margin: 0; font-family: var(--font-mono); font-size: 13px; line-height: 1.9; color: #E9E6DF; overflow-x: auto;")}>POST <span style={s("color:#8FB18A;")}>/webhooks/trigger</span>{'\nx-api-key: <your key>\n\nfile='}<span style={s("color:#8B92A0;")}>@document.pdf</span>{'\nfileId='}<span style={s("color:#8B92A0;")}>file-001</span>{'\nreferenceId='}<span style={s("color:#8B92A0;")}>reference-001</span></pre>
       </div>
     </div>
 
