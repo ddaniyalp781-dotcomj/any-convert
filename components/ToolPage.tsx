@@ -7,9 +7,10 @@ interface ToolPageProps {
   icon: React.ReactNode;
   iconBg: string;
   price: string;
+  trustBullet: string;
 }
 
-export default function ToolPage({ headline, description, icon, iconBg, price }: ToolPageProps) {
+export default function ToolPage({ headline, description, icon, iconBg, price, trustBullet }: ToolPageProps) {
   return (
     <>
       {/* HERO */}
@@ -52,6 +53,28 @@ export default function ToolPage({ headline, description, icon, iconBg, price }:
         </div>
       </div>
 
+      {/* TRUST ROW */}
+      <div style={s('padding: 72px var(--pad-x);')}>
+        <div className="tool-trust" style={s('max-width: 1120px; margin: 0 auto; display: flex; gap: 40px;')}>
+          <div style={s('flex: 1; display: flex; gap: 14px; align-items: flex-start;')}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2452B0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s('flex-shrink: 0; margin-top: 2px;')}><path d="M12 2 4 5v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V5z"/><path d="m9 12 2 2 4-4"/></svg>
+            <div style={s('font-size: 14.5px; line-height: 1.5; color: var(--ink-muted);')}>Files removed from our servers immediately after delivery.</div>
+          </div>
+          <div style={s('flex: 1; display: flex; gap: 14px; align-items: flex-start;')}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2452B0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s('flex-shrink: 0; margin-top: 2px;')}><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+            <div style={s('font-size: 14.5px; line-height: 1.5; color: var(--ink-muted);')}>API-key authentication on every request.</div>
+          </div>
+          <div style={s('flex: 1; display: flex; gap: 14px; align-items: flex-start;')}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2452B0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s('flex-shrink: 0; margin-top: 2px;')}><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v3M16 4v3"/></svg>
+            <div style={s('font-size: 14.5px; line-height: 1.5; color: var(--ink-muted);')}>{trustBullet}</div>
+          </div>
+          <div style={s('flex: 1; display: flex; gap: 14px; align-items: flex-start;')}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2452B0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s('flex-shrink: 0; margin-top: 2px;')}><path d="M4 17V7a2 2 0 0 1 2-2h6l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg>
+            <div style={s('font-size: 14.5px; line-height: 1.5; color: var(--ink-muted);')}>Built for automated pipelines. Webhook delivery, not a manual download page.</div>
+          </div>
+        </div>
+      </div>
+
       {/* PRICING */}
       <div id="pricing" style={s('padding: 88px var(--pad-x);')}>
         <PricingCards heading={false} />
@@ -61,6 +84,7 @@ export default function ToolPage({ headline, description, icon, iconBg, price }:
         @media (max-width: 720px) {
           .tool-hero { flex-direction: column; }
           .tool-steps { flex-direction: column; }
+          .tool-trust { flex-direction: column; }
         }
       `}</style>
     </>

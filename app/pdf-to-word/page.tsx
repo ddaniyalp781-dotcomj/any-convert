@@ -12,6 +12,7 @@ export default function PdfToWordPage() {
       headline="Convert PDF to Word, automatically."
       description="Send a PDF to one endpoint. We convert it to an editable .docx and deliver it straight to your webhook."
       price="From $0.27 / doc"
+      trustBullet="Preserves original formatting, fonts, and layout."
       iconBg="#2F6FE4"
       icon={
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

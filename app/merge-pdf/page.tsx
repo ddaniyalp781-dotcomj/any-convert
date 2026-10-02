@@ -12,6 +12,7 @@ export default function MergePdfPage() {
       headline="Merge PDFs, automatically."
       description="Send multiple PDF files to one endpoint. We combine them into a single document and deliver it to your webhook."
       price="From $0.18 / doc"
+      trustBullet="Combine any number of PDFs in the order you send them."
       iconBg="#6D4FC4"
       icon={
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
