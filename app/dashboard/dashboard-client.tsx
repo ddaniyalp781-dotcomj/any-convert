@@ -12,7 +12,12 @@ interface AccountStatus {
   remainingUses?: number;
   expiresAt?: string;
   webhookUrl?: string;
+  webhookSecret?: string;
   revoked: boolean;
+}
+
+function maskSecret(value: string): string {
+  return value.length <= 8 ? '••••••••' : `${value.slice(0, 8)}${'•'.repeat(24)}`;
 }
 
 const PLAN_LABELS: Record<string, string> = { uses_100: 'Starter', uses_200: 'Growth' };
@@ -304,6 +309,36 @@ export default function DashboardClient() {
           We can only show your full key once, right after it&apos;s created or regenerated — this prefix is just for identifying
           the key (e.g. in a support request). Regenerating invalidates your current key immediately, so update any running
           integrations first.
+        </div>
+      </div>
+
+      {/* WEBHOOK SECRET */}
+      <div style={s('background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 16px;')}>
+        <div style={s('font-size: 17px; font-weight: 600;')}>Webhook secret</div>
+        <div style={s('display: flex; align-items: center; gap: 12px; flex-wrap: wrap;')}>
+          <code style={s('background: var(--surface-2); padding: 10px 14px; border-radius: 8px; font-family: var(--font-mono); font-size: 14.5px; flex: 1; min-width: 200px;')}>
+            {account?.webhookSecret ? maskSecret(account.webhookSecret) : '—'}
+          </code>
+          <button
+            onClick={() => copyValue(account?.webhookSecret, 'webhookSecret')}
+            aria-label="Copy webhook secret"
+            style={s('flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink); border-radius: 8px; cursor: pointer; padding: 0;')}
+          >
+            {copied === 'webhookSecret' ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+            )}
+          </button>
+        </div>
+        <div style={s('font-size: 13px; color: var(--ink-muted);')}>
+          Sent as the <code>x-webhook-secret</code> header on every delivery, so you can verify it&apos;s really us. Unlike your
+          API key, this doesn&apos;t change when you regenerate your key.
         </div>
       </div>
 
