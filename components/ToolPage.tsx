@@ -84,8 +84,8 @@ export default function ToolPage({ badge, headline, description, exampleFile, ex
       </div>
 
       {/* PRICING */}
-      <div id="pricing" style={s('padding: 88px var(--pad-x);')}>
-        <PricingCards heading={false} />
+      <div id="pricing" style={s('background: var(--surface-2); padding: 88px var(--pad-x);')}>
+        <PricingCards />
       </div>
 
       <style>{`
