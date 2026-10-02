@@ -174,7 +174,6 @@ export default function DocsPage() {
         <h2 style={s('margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 24px; padding-top: 8px; border-top: 1px solid var(--line);')}>Limits</h2>
         <ul style={s('margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: var(--ink); line-height: 1.6;')}>
           <li>Maximum file size: 100 MB</li>
-          <li>Currently supported input format: DWG. More formats are added as new tools go live — see our tools page.</li>
         </ul>
       </div>
 
