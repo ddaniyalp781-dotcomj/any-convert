@@ -282,23 +282,6 @@ export default function DashboardClient() {
             {account?.keyPrefix ? `${account.keyPrefix}••••••••••••••••••••••••` : '—'}
           </code>
           <button
-            onClick={() => copyValue(account?.keyPrefix, 'keyPrefix')}
-            aria-label="Copy key prefix (for identifying this key in support requests, not the full secret)"
-            title="Copies the prefix only — the full key can't be shown again after its one-time reveal"
-            style={s('flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink); border-radius: 8px; cursor: pointer; padding: 0;')}
-          >
-            {copied === 'keyPrefix' ? (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            ) : (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="9" y="9" width="13" height="13" rx="2" />
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-              </svg>
-            )}
-          </button>
-          <button
             onClick={regenerateKey}
             style={s('border: 1px solid var(--danger); background: var(--danger-soft); color: var(--danger); padding: 10px 16px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;')}
           >
