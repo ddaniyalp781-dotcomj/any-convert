@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { s } from '@/lib/style';
-import { getAuthToken } from '@/lib/auth';
+import { getAuthToken, onAuthChange } from '@/lib/auth';
 import logo from '@/public/logo.png';
 
 const LINKS = [
@@ -21,8 +21,11 @@ export default function Nav() {
 
   // Reads the auth cookie client-side only — the server-rendered pass always assumes logged
   // out, then this corrects it right after mount (matches middleware's own restrictive default).
+  // Also listens for same-page login (the post-checkout dashboard flow sets the cookie without
+  // changing the URL, so `active` alone wouldn't trigger a re-check).
   useEffect(() => {
     setLoggedIn(!!getAuthToken());
+    return onAuthChange(() => setLoggedIn(!!getAuthToken()));
   }, [active]);
 
   return (
@@ -79,12 +82,14 @@ export default function Nav() {
             Log in
           </Link>
         )}
-        <Link
-          href="/pricing"
-          style={s('background: var(--accent); color: var(--accent-ink); padding: 10px 20px; border-radius: 8px; font-size: 15px; font-weight: 600;')}
-        >
-          Get your API key
-        </Link>
+        {!loggedIn && (
+          <Link
+            href="/pricing"
+            style={s('background: var(--accent); color: var(--accent-ink); padding: 10px 20px; border-radius: 8px; font-size: 15px; font-weight: 600;')}
+          >
+            Get your API key
+          </Link>
+        )}
       </div>
 
       <style jsx>{`
