@@ -156,7 +156,7 @@ export default function HomePage() {
           </div>
           <div>
             <div style={s("font-size: 17px; font-weight: 600;")}>DWG to PDF</div>
-            <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Convert DWG drawings to print-ready PDF via webhook.</div>
+            <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Convert DWG drawings to print-ready PDF.</div>
           </div>
           <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;")}>
             <span style={s("font-size: 13.5px; font-weight: 600; color: var(--ink);")}>$1.00 / doc</span>
