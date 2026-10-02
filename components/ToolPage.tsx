@@ -2,23 +2,22 @@ import { s } from '@/lib/style';
 import PricingCards from '@/components/PricingCards';
 
 interface ToolPageProps {
+  badge: string;
   headline: string;
   description: string;
-  icon: React.ReactNode;
-  iconBg: string;
+  exampleFile: string;
+  exampleFileId: string;
   price: string;
   trustBullet: string;
 }
 
-export default function ToolPage({ headline, description, icon, iconBg, price, trustBullet }: ToolPageProps) {
+export default function ToolPage({ badge, headline, description, exampleFile, exampleFileId, price, trustBullet }: ToolPageProps) {
   return (
     <>
       {/* HERO */}
       <div className="tool-hero" style={s('display: flex; gap: 56px; align-items: center; padding: 96px var(--pad-x) 88px; max-width: 1312px; margin: 0 auto; box-sizing: border-box;')}>
         <div style={s('flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 24px;')}>
-          <div style={s(`width: 56px; height: 56px; border-radius: 14px; background: ${iconBg}; color: #fff; display: flex; align-items: center; justify-content: center;`)}>
-            {icon}
-          </div>
+          <div style={s('display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; background: var(--accent-soft); color: var(--accent); padding: 6px 12px; border-radius: 100px; font-size: 13px; font-weight: 600;')}>{badge}</div>
           <h1 style={s('margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 46px; line-height: 1.1; letter-spacing: -0.02em;')}>{headline}</h1>
           <p style={s('margin: 0; font-size: 17px; line-height: 1.6; color: var(--ink-muted); max-width: 46ch;')}>{description}</p>
           <div style={s('display: flex; align-items: center; gap: 14px; margin-top: 4px;')}>
@@ -26,6 +25,16 @@ export default function ToolPage({ headline, description, icon, iconBg, price, t
             <a href="/docs" style={s('border: 1px solid var(--line); color: var(--ink); padding: 14px 24px; border-radius: 8px; font-size: 16px; font-weight: 600;')}>Read the docs</a>
           </div>
           <div style={s('font-size: 14.5px; color: var(--ink-muted);')}>{price} — on the same plan and credits as every other tool, no separate purchase.</div>
+        </div>
+        <div style={s('flex: 1 1 0; min-width: 0;')}>
+          <div style={s('background: #14181D; border-radius: 14px; padding: 28px; box-shadow: 0 20px 48px -20px rgba(28,31,34,0.35);')}>
+            <div style={s('display: flex; gap: 8px; margin-bottom: 18px;')}>
+              <div style={s('width: 11px; height: 11px; border-radius: 50%; background: #4B5157;')}></div>
+              <div style={s('width: 11px; height: 11px; border-radius: 50%; background: #4B5157;')}></div>
+              <div style={s('width: 11px; height: 11px; border-radius: 50%; background: #4B5157;')}></div>
+            </div>
+            <pre style={s('margin: 0; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.7; color: #E9E6DF; white-space: pre-wrap; overflow-wrap: break-word;')}>{`curl -X POST https://api.anyconvert.app/webhooks/trigger \\\n  -H "x-api-key: <your key>" \\\n  -F "file=@${exampleFile}" \\\n  -F "fileId=${exampleFileId}" \\\n  -F "referenceId=reference-001"\n\n`}<span style={s('color:#8FB18A;')}>→ 202 Accepted</span>{`\n{"fileId": "${exampleFileId}", "status": "accepted"}`}</pre>
+          </div>
         </div>
       </div>
 
