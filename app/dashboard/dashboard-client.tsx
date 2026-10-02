@@ -33,7 +33,7 @@ export default function DashboardClient() {
 
   const [phase, setPhase] = useState<'loading' | 'polling' | 'ready' | 'error'>('loading');
   const [errorMessage, setErrorMessage] = useState('');
-  const [reveal, setReveal] = useState<{ apiKey?: string; password?: string } | null>(null);
+  const [reveal, setReveal] = useState<{ apiKey?: string; webhookSecret?: string; password?: string } | null>(null);
   const [account, setAccount] = useState<AccountStatus | null>(null);
 
   const [webhookUrl, setWebhookUrl] = useState('');
@@ -85,7 +85,7 @@ export default function DashboardClient() {
           clearInterval(interval);
           if (data.access_token) {
             setAuthToken(data.access_token);
-            setReveal({ apiKey: data.apiKey, password: data.password });
+            setReveal({ apiKey: data.apiKey, webhookSecret: data.webhookSecret, password: data.password });
             router.replace('/dashboard');
             loadAccount();
           } else {
@@ -227,8 +227,19 @@ export default function DashboardClient() {
       {reveal?.apiKey && (
         <div style={s('background: var(--accent-soft); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 12px;')}>
           <div style={s('font-size: 16px; font-weight: 700;')}>You&apos;re all set — save these now</div>
-          <div style={s('font-size: 13.5px; color: var(--ink-muted);')}>We can&apos;t show your API key or password again after you leave this page.</div>
+          <div style={s('font-size: 13.5px; color: var(--ink-muted);')}>
+            We can&apos;t show your API key, webhook secret, or password again after you leave this page.
+          </div>
           <CredentialRow label="API key" value={reveal.apiKey} field="revealKey" copied={copied} onCopy={copyValue} />
+          {reveal.webhookSecret && (
+            <CredentialRow
+              label="Webhook secret (to verify deliveries are really from us)"
+              value={reveal.webhookSecret}
+              field="revealWebhookSecret"
+              copied={copied}
+              onCopy={copyValue}
+            />
+          )}
           {reveal.password && <CredentialRow label="Password (for logging in later)" value={reveal.password} field="revealPassword" copied={copied} onCopy={copyValue} />}
         </div>
       )}
@@ -266,13 +277,34 @@ export default function DashboardClient() {
             {account?.keyPrefix ? `${account.keyPrefix}••••••••••••••••••••••••` : '—'}
           </code>
           <button
+            onClick={() => copyValue(account?.keyPrefix, 'keyPrefix')}
+            aria-label="Copy key prefix (for identifying this key in support requests, not the full secret)"
+            title="Copies the prefix only — the full key can't be shown again after its one-time reveal"
+            style={s('flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink); border-radius: 8px; cursor: pointer; padding: 0;')}
+          >
+            {copied === 'keyPrefix' ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+            )}
+          </button>
+          <button
             onClick={regenerateKey}
             style={s('border: 1px solid var(--danger); background: var(--danger-soft); color: var(--danger); padding: 10px 16px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;')}
           >
             Regenerate
           </button>
         </div>
-        <div style={s('font-size: 13px; color: var(--ink-muted);')}>Regenerating invalidates your current key immediately, so update any running integrations first.</div>
+        <div style={s('font-size: 13px; color: var(--ink-muted);')}>
+          We can only show your full key once, right after it&apos;s created or regenerated — this prefix is just for identifying
+          the key (e.g. in a support request). Regenerating invalidates your current key immediately, so update any running
+          integrations first.
+        </div>
       </div>
 
       {/* WEBHOOK */}
