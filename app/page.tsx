@@ -50,9 +50,6 @@ export default function HomePage() {
             <div style={s("font-size: 17px; font-weight: 600;")}>PDF to Word</div>
             <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Convert PDFs to editable .docx documents.</div>
           </div>
-          <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: flex-end;")}>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
-          </div>
         </a>
 
         {/* MERGE PDF */}
@@ -66,9 +63,6 @@ export default function HomePage() {
           <div>
             <div style={s("font-size: 17px; font-weight: 600;")}>Merge PDF</div>
             <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Combine multiple PDFs into one document.</div>
-          </div>
-          <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: flex-end;")}>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
           </div>
         </a>
 
@@ -84,9 +78,6 @@ export default function HomePage() {
             <div style={s("font-size: 17px; font-weight: 600;")}>JPG to PDF</div>
             <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Turn JPG, PNG, and TIFF images into PDF.</div>
           </div>
-          <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: flex-end;")}>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
-          </div>
         </a>
 
         {/* SIGN PDF */}
@@ -100,9 +91,6 @@ export default function HomePage() {
           <div>
             <div style={s("font-size: 17px; font-weight: 600;")}>Sign PDF</div>
             <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Apply a signature field to a PDF programmatically.</div>
-          </div>
-          <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: flex-end;")}>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
           </div>
         </a>
 
@@ -118,9 +106,6 @@ export default function HomePage() {
             <div style={s("font-size: 17px; font-weight: 600;")}>Edit PDF</div>
             <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Add text, shapes, and annotations to a PDF.</div>
           </div>
-          <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: flex-end;")}>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
-          </div>
         </a>
 
         {/* COMPRESS PDF */}
@@ -135,9 +120,6 @@ export default function HomePage() {
             <div style={s("font-size: 17px; font-weight: 600;")}>Compress PDF</div>
             <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Shrink file size without losing print quality.</div>
           </div>
-          <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: flex-end;")}>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
-          </div>
         </a>
 
         {/* DWG TO PDF */}
@@ -151,9 +133,6 @@ export default function HomePage() {
           <div>
             <div style={s("font-size: 17px; font-weight: 600;")}>DWG to PDF</div>
             <div style={s("font-size: 14px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5;")}>Convert DWG drawings to print-ready PDF.</div>
-          </div>
-          <div style={s("margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: flex-end;")}>
-            <span style={s("font-size: 12.5px; font-weight: 600; color: var(--success); background: var(--success-soft); padding: 3px 9px; border-radius: 100px;")}>Get API key</span>
           </div>
         </a>
 
