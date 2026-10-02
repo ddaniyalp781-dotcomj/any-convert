@@ -14,7 +14,6 @@ export default function SignPdfPage() {
       description="Send a PDF and signer details to one endpoint. We apply the signature field and deliver the signed document to your webhook."
       exampleFile="agreement.pdf"
       exampleFileId="document-001"
-      price="From $0.32 / doc"
       trustBullet="Signature fields placed exactly where you specify."
     />
   );

@@ -14,7 +14,6 @@ export default function CompressPdfPage() {
       description="Send a PDF to one endpoint. We reduce its file size without sacrificing print quality and deliver it to your webhook."
       exampleFile="presentation.pdf"
       exampleFileId="document-001"
-      price="From $0.14 / doc"
       trustBullet="Smaller files with no visible quality loss."
     />
   );

@@ -14,7 +14,6 @@ export default function MergePdfPage() {
       description="Send multiple PDF files to one endpoint. We combine them into a single document and deliver it to your webhook."
       exampleFile="report.pdf"
       exampleFileId="document-001"
-      price="From $0.18 / doc"
       trustBullet="Combine any number of PDFs in the order you send them."
     />
   );

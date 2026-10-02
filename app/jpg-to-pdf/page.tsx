@@ -14,7 +14,6 @@ export default function JpgToPdfPage() {
       description="Send JPG, PNG, BMP, GIF, or TIFF images to one endpoint. We combine them into a single PDF and deliver it to your webhook."
       exampleFile="photo.jpg"
       exampleFileId="image-001"
-      price="From $0.14 / doc"
       trustBullet="Supports JPG, PNG, BMP, GIF, and TIFF input."
     />
   );

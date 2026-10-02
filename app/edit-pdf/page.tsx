@@ -14,7 +14,6 @@ export default function EditPdfPage() {
       description="Send a PDF with edit instructions to one endpoint. We apply text, shape, and annotation changes and deliver the result to your webhook."
       exampleFile="invoice.pdf"
       exampleFileId="document-001"
-      price="From $0.27 / doc"
       trustBullet="Text, shape, and annotation changes applied precisely."
     />
   );

@@ -14,7 +14,6 @@ export default function PdfToWordPage() {
       description="Send a PDF to one endpoint. We convert it to an editable .docx and deliver it straight to your webhook."
       exampleFile="contract.pdf"
       exampleFileId="document-001"
-      price="From $0.27 / doc"
       trustBullet="Preserves original formatting, fonts, and layout."
     />
   );

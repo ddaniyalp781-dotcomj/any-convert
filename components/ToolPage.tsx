@@ -7,11 +7,10 @@ interface ToolPageProps {
   description: string;
   exampleFile: string;
   exampleFileId: string;
-  price: string;
   trustBullet: string;
 }
 
-export default function ToolPage({ badge, headline, description, exampleFile, exampleFileId, price, trustBullet }: ToolPageProps) {
+export default function ToolPage({ badge, headline, description, exampleFile, exampleFileId, trustBullet }: ToolPageProps) {
   return (
     <>
       {/* HERO */}
@@ -24,7 +23,7 @@ export default function ToolPage({ badge, headline, description, exampleFile, ex
             <a href="/pricing" style={s('background: var(--accent); color: var(--accent-ink); padding: 14px 24px; border-radius: 8px; font-size: 16px; font-weight: 600;')}>Get your API key</a>
             <a href="/docs" style={s('border: 1px solid var(--line); color: var(--ink); padding: 14px 24px; border-radius: 8px; font-size: 16px; font-weight: 600;')}>Read the docs</a>
           </div>
-          <div style={s('font-size: 14.5px; color: var(--ink-muted);')}>{price} — on the same plan and credits as every other tool, no separate purchase.</div>
+          <div style={s('font-size: 14.5px; color: var(--ink-muted);')}>On the same plan and credits as every other tool, no separate purchase.</div>
         </div>
         <div style={s('flex: 1 1 0; min-width: 0;')}>
           <div style={s('background: #14181D; border-radius: 14px; padding: 28px; box-shadow: 0 20px 48px -20px rgba(28,31,34,0.35);')}>
